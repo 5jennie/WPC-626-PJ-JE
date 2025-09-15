@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* 도깨비 PJ 메인 페이지 CSS - main.css */
+
+/* 외부 CSS 불러오기 */
+@import url(./reset.css);
+@import url(./core.css);
+/* 12그리드 CSS */
+@import url(./grid_12_flex.css);
+
+/* 공사중 표시 */
+body * {
+  outline: 2px dashed #ccc;
+}
+
+/***************** 메인 CSS *****************/
+/***************** 1. 상단영역 *****************/
+.top-area {
+  height: 122px;
+}
+
+/* 상단영역 flex 부모박스 */
+.top-area .cont-box {
+  justify-content: space-between;
+}
+
+/* 로고 */
+.logo-box {
+  width: 126px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* 메뉴박스 */
+.menu-box {
+  padding-right: 10px;
+}
+
+/* 메뉴 그룹 flex */
+.menu-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+/* 상단영역 메뉴 공통 flex */
+.menu-group ul {
+  display: flex;
+}
+
+/* 탑메뉴 */
+.top-menu ul {
+  font-size: 1.6rem;
+  gap: 3.2rem;
+}
+
+/* GNB메뉴 */
+.gnb-menu ul {
+  font-size: 1.8rem;
+  gap: 3.2rem;
+}
+
+/***************** 1.5. 드라마파트메뉴 *****************/
+/***************** 2. 메인영역 *****************/
+/***************** 2-1. 배너영역 *****************/
+.banner-part {
+  /* 비율셋팅 : 배너이미지크기 비율임! */
+  aspect-ratio: 1380 / 598;
+
+  /* 임시이미지 */
+  background: url(../../01.구현디자인/images/dokaebi_banner3.jpg) no-repeat
+    center/cover;
+}
+/***************** 2-2. 캐릭터영역 *****************/
+.cat-part {
+  height: 188px;
+}
+/***************** 2-3. 드라마소개영역 *****************/
+.intro-part {
+  height: 500px;
+}
+/***************** 2-4. 미리보기영역 *****************/
+.view-part {
+  height: 660px;
+}
+/***************** 2-5. 현장포토영역 *****************/
+.real-part {
+  height: 906px;
+}
+/***************** 2-6. 대표포스터영역 *****************/
+.poster-part {
+  height: 654px;
+}
+/***************** 2-7. 최신동영상영역 *****************/
+.video-part {
+  height: 409px;
+}
+/***************** 3. 하단영역 *****************/
+.bottom-area {
+  height: 391px;
+}
