@@ -1,95 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>위고 출판사</title>
-    <!-- 메인 CSS -->
+    <title>휴고</title>
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    <!-- 1. 상단영역 -->
-    <div id="top-area">
-      <header class="top-area inbox">
-        <h2 class="temp-tit blind">1. 상단영역</h2>
-        <!-- 상단영역 플렉스 부모박스 : .cont-box -->
-        <div class="cont-box">
-          <!-- 1-1. 로고박스 -->
-          <section class="logo-box">
-            <h1 class="logo">
-              <a href="#">
-                <img
-                  src="../02.구현디자인/01.로고/위고 출판 logo.jfif"
-                  alt="로고"
-                />
-              </a>
-            </h1>
-          </section>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <nav class="nav-left">
+          <a href="#">books</a>
+          <a href="#">Info</a>
+        </nav>
 
-          <!-- 1-2. 메뉴박스 -->
-          <section class="menu-box">
-            <!-- 메뉴박스 하위 메뉴그룹박스 -->
-            <div class="menu-group">
-              <!-- 1-2-1. 탑메뉴 -->
-              <nav class="top-menu">
-                <ul>
-                  <li><a href="#">books</a></li>
-                  <li><a href="#">Info</a></li>
-                  <li><a href="#">Login</a></li>
-                  <li><a href="#">KR</a></li>
-                  <li><a href="#">ER</a></li>
-                </ul>
-              </nav>
-            </div>
-          </section>
+        <!-- 1-1. 로고박스 -->
+        <section class="logo-box">
+          <h1 class="logo">
+            <a href="#">
+              <img
+                src="../../03.구현소스(디자인&소스)/02.구현디자인/01.로고/logo_B1.png"
+                alt="로고"
+              />
+            </a>
+          </h1>
+        </section>
+
+        <nav class="nav-right">
+          <a href="#">Login</a>
+          <button class="lang-btn">KR</button>
+          <button class="lang-btn">EN</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-book">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/1.jpg"
+            alt="Featured Book 1"
+          />
         </div>
-      </header>
-    </div>
+        <div class="hero-book">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/2.jpg"
+            alt="Featured Book 2"
+          />
+        </div>
+        <div class="hero-book">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/3.jpg"
+            alt="Featured Book 3"
+          />
+        </div>
+      </div>
+    </section>
 
-    <!-- 3. 상품영역 -->
-    <div id="books-area">
-      <main class="newbooks-area">
-        <!-- 2-1. 뉴북스 -->
-        <section class="banner-part">
-          <h2 class="temp-tit">뉴 북스</h2>
-        </section>
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <a href="#" class="nav-tab active">New Books</a>
+      <a href="#" class="nav-tab">Best</a>
+      <a href="#" class="nav-tab">All</a>
+    </nav>
 
-        <!-- 2-2. 캐릭터영역 -->
-        <section class="cat-part inbox">
-          <h2 class="temp-tit">2-2. 캐릭터영역</h2>
-        </section>
+    <!-- Book Section -->
+    <main class="book-section">
+      <div class="book-row">
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+      </div>
 
-        <!-- 2-3. 드라마소개영역 -->
-        <section class="intro-part inbox">
-          <h2 class="temp-tit">2-3. 드라마소개영역</h2>
-        </section>
+      <div class="book-row">
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+        </div>
+      </div>
+    </main>
 
-        <!-- 2-4. 미리보기영역 -->
-        <section class="view-part inbox">
-          <h2 class="temp-tit">2-4. 미리보기영역</h2>
-        </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#">회사 소개 페이지</a>
+                <a href="#">이용약관</a>
+                <a href="#">개인정보 처리방침</a>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-info">
+                    (주)위고<br>
+                    경기도 파주시 광인사길 209 3층<br>
+                    사업자등록번호 141-90-49061<br>
+                    대표자 조소영, 이재현
+                </div>
+                
+                <div class="footer-info">
+                    Customer Center<br>
+                    구매문의 0507-1342-9276<br>
+                    상품문의 0507-1342-9276<br>
+                    (09:00 - 17:00 / 휴계시간 11:30 - 13:00)<br>
+                    @hugobooks
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">t</a>
+                    <a href="#" class="social-icon">i</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-        <!-- 2-5. 현장포토영역 -->
-        <section class="real-part inbox">
-          <h2 class="temp-tit">2-5. 현장포토영역</h2>
-        </section>
-
-        <!-- 2-6. 대표포스터영역 -->
-        <section class="poster-part inbox">
-          <h2 class="temp-tit">2-6. 대표포스터영역</h2>
-        </section>
-
-        <!-- 2-7. 최신동영상영역 -->
-        <section class="video-part inbox">
-          <h2 class="temp-tit">2-7. 최신동영상영역</h2>
-        </section>
-      </main>
-    </div>
-    <!-- 3. 하단영역 -->
-    <div id="bottom-area">
-      <footer class="bottom-area inbox">
-        <h2 class="temp-tit">3. 하단영역</h2>
-      </footer>
-    </div>
+    <script src="script.js"></script>
   </body>
 </html>
