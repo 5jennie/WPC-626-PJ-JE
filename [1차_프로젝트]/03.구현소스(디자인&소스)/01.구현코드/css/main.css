@@ -80,16 +80,20 @@ body {
 }
 
 /* 2. 메인영역 */
-.main-container {
-  display: flex;
-  max-width: auto;
-}
-
-/* 2-0. 메인배너 */
 /* 메인배너 전체 설정 */
 .main-bn {
   width: 100%;
-  
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  height: 500px;
+}
+
+.main-bn img {
+  width: 33.33%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* 2-1. Navigation Tabs */
