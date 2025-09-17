@@ -4,29 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>휴고</title>
+
+    <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
   </head>
+
   <body>
-    <!-- Header -->
+    <!-- 1. 상단영역 -->
     <header class="header">
       <div class="header-container">
+        <!-- 1-1. 왼쪽 카테고리 -->
         <nav class="nav-left">
           <a href="#">books</a>
           <a href="#">Info</a>
         </nav>
 
-        <!-- 1-1. 로고박스 -->
+        <!-- 1-2. 로고박스 -->
         <section class="logo-box">
           <h1 class="logo">
             <a href="#">
               <img
                 src="../../03.구현소스(디자인&소스)/02.구현디자인/01.로고/logo_B1.png"
-                alt="로고"
+                alt="logo"
               />
             </a>
           </h1>
         </section>
-
+        <!-- 1-3. 오른쪽 카테고리 -->
         <nav class="nav-right">
           <a href="#">Login</a>
           <button class="lang-btn">KR</button>
@@ -35,38 +39,39 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-container">
-        <div class="hero-book">
+    <!-- 2. 메인영역 -->
+    <section class="main">
+      <div class="main-container">
+        <div class="main-bn">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/1.jpg"
-            alt="Featured Book 1"
+            alt="Banner1"
           />
         </div>
-        <div class="hero-book">
+        <div class="main-bn">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/2.jpg"
-            alt="Featured Book 2"
+            alt="Banner2"
           />
         </div>
-        <div class="hero-book">
+        <div class="main-bn">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/3.jpg"
-            alt="Featured Book 3"
+            alt="Banner3"
           />
         </div>
       </div>
     </section>
 
-    <!-- Navigation Tabs -->
+    <!-- 2-1. Navigation Tabs -->
     <nav class="nav-tabs">
-      <a href="#" class="nav-tab active">New Books</a>
+      <a href="#" class="nav-tab">New Books</a>
       <a href="#" class="nav-tab">Best</a>
       <a href="#" class="nav-tab">All</a>
     </nav>
 
-    <!-- Book Section -->
+    <!-- 2-2. Book Section -->
+    <!-- 첫번째 줄 5권 -->
     <main class="book-section">
       <div class="book-row">
         <div class="book-item">
@@ -105,7 +110,7 @@
           />
         </div>
       </div>
-
+      <!-- 두번째 줄 5권 -->
       <div class="book-row">
         <div class="book-item">
           <img
@@ -145,40 +150,46 @@
       </div>
     </main>
 
+    <!-- 3. 하단영역 -->
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-links">
-                <a href="#">회사 소개 페이지</a>
-                <a href="#">이용약관</a>
-                <a href="#">개인정보 처리방침</a>
-            </div>
-            
-            <div class="footer-content">
-                <div class="footer-info">
-                    (주)위고<br>
-                    경기도 파주시 광인사길 209 3층<br>
-                    사업자등록번호 141-90-49061<br>
-                    대표자 조소영, 이재현
-                </div>
-                
-                <div class="footer-info">
-                    Customer Center<br>
-                    구매문의 0507-1342-9276<br>
-                    상품문의 0507-1342-9276<br>
-                    (09:00 - 17:00 / 휴계시간 11:30 - 13:00)<br>
-                    @hugobooks
-                </div>
-                
-                <div class="footer-social">
-                    <a href="#" class="social-icon">f</a>
-                    <a href="#" class="social-icon">t</a>
-                    <a href="#" class="social-icon">i</a>
-                </div>
-            </div>
+      <!-- 링크로 이동하기 -->
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="#">회사 소개 페이지</a>
+          <a href="#">이용약관</a>
+          <a href="#">개인정보 처리방침</a>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <!-- 위고 출판사 주소 및 대표자명 -->
+        <div class="footer-content">
+          <div class="footer-info">
+            (주)위고<br />
+            경기도 파주시 광인사길 209 3층<br />
+            사업자등록번호 141-90-49061<br />
+            대표자 조소영, 이재현
+          </div>
+
+          <!-- 위고 출판사 CS 관련 -->
+          <div class="footer-info">
+            Customer Center<br />
+            구매문의 0507-1342-9276<br />
+            상품문의 0507-1342-9276<br />
+            (09:00 - 17:00 / 휴계시간 11:30 - 13:00)<br />
+            @hugobooks
+          </div>
+
+          <!-- SNS 버튼 -->
+          <div class="footer-sns">
+            <!-- 인스타 -->
+            <a href="#" class="sns-icon">i</a>
+            <!-- 네이버 -->
+            <a href="#" class="sns-icon">n</a>
+            <!-- 엑스 -->
+            <a href="#" class="sns-icon">x</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

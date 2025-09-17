@@ -1,5 +1,5 @@
 @charset "utf-8";
-/* 도깨비 PJ 메인 페이지 CSS - main.css */
+/* 위고 출판사 메인 페이지 CSS - main.css */
 
 /* 외부 CSS 불러오기 */
 @import url(./reset.css);
@@ -8,7 +8,7 @@
 @import url(./grid_12_flex.css);
 
 /* 공사중 표시 */
-body * {
+/* body * {
   outline: 2px dashed #ccc;
 }
 * {
@@ -21,7 +21,7 @@ body {
     font-family: <link rel="preconnect" href="https://fonts.googleapis.com">;
     line-height: 1.6;
     background-color: #f5f5f5;
-}
+} */
 
 /* Header */
 .header {
