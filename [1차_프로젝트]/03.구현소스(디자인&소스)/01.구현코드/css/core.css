@@ -1,22 +1,35 @@
 @charset "utf-8";
-/* 도깨비 PJ : 공통 클래스 CSS - core.css */
+/* 위고출판사 : 공통 클래스 CSS - core.css */
 /* 공통 셋팅을 위한 클래스 + 웹폰트 */
 
 /* 센츄리 고딕 폰트 추가 */
 /* Century_Gothic_Pro */
 @font-face {
-  font-family: "Century_Gothic";
-  src: url("../03.구현소스(디자인&소스)/fonts/com-Century_Gothic_Pro_Bold_Italic.otf") format("opentype");
-  font-weight: 400; /* normal */
-  font-style: normal;
+    font-family: "Century_Gothic";
+    src: url("./fonts/Century_Gothic_Pro.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
 }
 
-/* Gothic_Pro_Bold */
 @font-face {
-  font-family: "Century_Gothic";
-  src: url("../fonts/Gothic_Pro_Bold.otf") format("opentype");
-  font-weight: 700; /* bold */
-  font-style: normal;
+    font-family: "Century_Gothic";
+    src: url("./fonts/Century_Gothic_Pro_Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Century_Gothic";
+    src: url("./fonts/Century_Gothic_Pro_Bold_Italic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Century_Gothic";
+    src: url("./fonts/Century_Gothic_Pro_Italic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
 }
 
 /* 전체 글자크기 */
@@ -24,9 +37,10 @@ html {
   font-size: 10px;
   /* rem단위 계산편의를 위함 */
 }
+
+/* 폰트 적용 */
 body {
-  /* 글자체 */
-  font-family: "Century_Gothic", sans-serif;
+    font-family: "Century_Gothic", sans-serif;
 }
 
 /********* 공통 클래스 *********/
