@@ -104,7 +104,6 @@
 /* 탭존 전체 설정 */
 .nav-tabs {
   overflow-x: hidden;
-  max-width: 1920px;
   margin-top: 60px;
   margin-bottom: 60px;
   display: flex;
@@ -127,9 +126,9 @@
 /* 2-2. Book Section */
 /* 도서 세션 전체 설정 */
 .book-section {
-  max-width: 1920px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 1720px;
+  margin: auto;
+  /* padding: 0 20px; */
 }
 
 /* 도서 세션 내용 */
