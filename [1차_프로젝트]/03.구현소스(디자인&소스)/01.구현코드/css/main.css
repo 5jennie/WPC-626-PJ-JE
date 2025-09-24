@@ -76,18 +76,40 @@
 }
 
 /* 언어 설정버튼 */
-.lang-btn {
+/* KR 버튼 */
+.lang-kr {
   padding: 5px 15px;
   border: 1px solid #ddd;
   border-radius: 15px;
   font-size: 18px;
   background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.lang-kr:hover,
+.lang-kr.active {
+  background: #137CF4;
+  color: #fff;
+  border-color: #137CF4;
 }
 
-/* 호버시 텍스트 컬러 바뀌기 */
-.nav-right a:hover {
-  color: #137CF4;
+/* EN 버튼 */
+.lang-en {
+  padding: 5px 15px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  font-size: 18px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
 }
+.lang-en:hover,
+.lang-en.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
 
 /* 2. 메인영역 */
 /* 메인 배너 전체 박스 */
