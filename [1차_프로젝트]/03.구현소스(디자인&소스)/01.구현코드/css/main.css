@@ -7,74 +7,106 @@
 /* 12그리드 CSS */
 @import url(./grid_12_flex.css);
 
-/* 공사중 표시 */
-/* body * {
-  outline: 2px dashed #ccc;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ***************************************************************** */
+
+body {
+  margin: 0;
 }
 
 /* ***************************************************************** */
 /* 1. 상단영역 */
 /* Header */
+
+.hero-section {
+    height: 100vh;
+  max-height: 1080px;
+  min-height: 800px; /* 최소 높이 보장 */
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   background: white;
+  /* 헤더 높이 고정 */
+  height: 250px; /* 고정 높이 */
+  /* 최소 높이 보장 */
+  min-height: 150px;
+    display: flex;
+  align-items: center;
+  flex-shrink: 0; /* 높이 고정 */
 }
 
 /* 헤더안에 들어가는 컨텐츠 */
 .header-container {
-  margin-top: 30px;
-  border-bottom: solid 2px;
+  border-bottom: solid 0.2vh;
   display: flex;
   justify-content: space-between;
-  /* padding: 0 20px; */
+  /* 수직 중앙 정렬 */
+  padding-top: 3vh;
+
+   width: 100%;
+
 }
 
-/* 1-1. 왼쪽 카테고리 구역 */
-.nav-left {
+/* 전체 카테고리 옆으로 흐르게 */
+.nav-left ul,
+.nav-right ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   gap: 20px;
+}
+
+/* 로고박스 카데고리 중앙에 로고 */
+.logo {
+  width: 100%;
+}
+
+/* ****** 왼쪽 카테고리 구역 효과 ****** */
+/* 왼쪽 카테고리 구역 */
+.nav-left {
   padding-left: 50px;
   display: flex;
+  /* gap: 20px; */
 }
 
-/* 1-1. 왼쪽 카테고리 텍스트 */
+/* 왼쪽 카테고리 텍스트 */
 .nav-left a {
   font-size: 25px;
   color: #000000;
 }
 
-/* 호버시 텍스트 컬러 바뀌기 */
+/* 왼쪽 호버시 텍스트 컬러 바뀌기 */
 .nav-left a:hover {
-  color: #137CF4;
+  color: #137cf4;
 }
 
-/* 1-2. 로고박스 카데고리 중앙에 로고 */
-.logo {
-  width: 100%;
-}
+/* ****************************** */
 
-/* 1-3. 오른쪽 카테고리 구역 */
+/* ****** 오른쪽 카테고리 구역 효과 ****** */
+/* 오른쪽 카테고리 구역 */
 .nav-right {
   height: 28px;
   display: flex;
-  gap: 20px;
   padding-right: 50px;
+  /* gap: 20px; */
 }
 
-/* 1-3. 오른쪽 카테고리 텍스트 */
+/* 오른쪽 카테고리 텍스트 */
 .nav-right a {
   font-size: 25px;
   color: #000000;
 }
 
-/* 호버시 텍스트 컬러 바뀌기 */
+/* 오른쪽 호버시 텍스트 컬러 바뀌기 */
 .nav-right a:hover {
-  color: #137CF4;
+  color: #137cf4;
 }
 
+/* ****************************** */
+
+/* ****** 언어 설정 구역 효과 ****** */
 /* 언어 설정버튼 */
 /* KR 버튼 */
 .lang-kr {
@@ -86,11 +118,12 @@
   cursor: pointer;
   transition: all 0.3s;
 }
+/* KR 호버효과 */
 .lang-kr:hover,
 .lang-kr.active {
-  background: #137CF4;
+  background: #137cf4;
   color: #fff;
-  border-color: #137CF4;
+  border-color: #137cf4;
 }
 
 /* EN 버튼 */
@@ -103,13 +136,21 @@
   cursor: pointer;
   transition: all 0.3s;
 }
+/* EN 호버효과 */
 .lang-en:hover,
 .lang-en.active {
-  background: #000;
+  background: #137cf4;
   color: #fff;
-  border-color: #000;
+  border-color: #137cf4;
+}
+/* 언어 버튼 컨테이너 */
+.lang-buttons {
+  display: flex;
+  /* KR과 EN 사이만 좁은 간격 */
+  gap: 8px;
 }
 
+/* ****************************** */
 
 /* 2. 메인영역 */
 /* 메인 배너 전체 박스 */
@@ -133,8 +174,8 @@
   height: 100%;
   /* 호버 효과를 위한 상대 위치 */
   position: relative;
-  /* 넘치는 부분 숨김 */ 
-  overflow: hidden; 
+  /* 넘치는 부분 숨김 */
+  overflow: hidden;
 }
 /* 배너의 이미지 */
 .main-bn img {
@@ -166,16 +207,16 @@
   /* 기본은 투명 */
   color: #00000000;
   margin-left: 30px;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
   transition: color 0.3s ease-out;
 }
 
 /* 메인배너 정보 박스 호버시 */
 .book-info:hover {
   /* 그라데이션 */
-  
+
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-flex-basis: calc(100% / 3)
+  /* flex-basis: calc(100% / 3); */
 }
 
 /* 호버시 텍스트 흰색으로 바뀌기 */
@@ -186,32 +227,32 @@ flex-basis: calc(100% / 3)
 @keyframes main-ain {
   0% {
     transform: translateX(0);
-/* 1,2,3번째 보여줌 */
-}
-16.67% {
-    transform: translateX(-33.33%); 
-/* 2,3,4번째 보여줌 */
-}
-33.33% {
-    transform: translateX(-66.67%); 
-/* 3,4,5번째 보여줌 */
-}
+    /* 1,2,3번째 보여줌 */
+  }
+  16.67% {
+    transform: translateX(-33.33%);
+    /* 2,3,4번째 보여줌 */
+  }
+  33.33% {
+    transform: translateX(-66.67%);
+    /* 3,4,5번째 보여줌 */
+  }
   50% {
-    transform: translateX(-100%); 
-/* 4,5,6번째 보여줌 */
-}
+    transform: translateX(-100%);
+    /* 4,5,6번째 보여줌 */
+  }
   66.67% {
-    transform: translateX(-133.33%); 
-/* 5,6,1번째 보여줌 */
-}
+    transform: translateX(-133.33%);
+    /* 5,6,1번째 보여줌 */
+  }
   83.33% {
-    transform: translateX(-166.67%); 
-/* 6,1,2번째 보여줌 */
-}
+    transform: translateX(-166.67%);
+    /* 6,1,2번째 보여줌 */
+  }
   100% {
-    transform: translateX(-200%); 
-/* 1,2,3번째 보여줌 (다음 루프와 같은 위치) */
-}
+    transform: translateX(-200%);
+    /* 1,2,3번째 보여줌 (다음 루프와 같은 위치) */
+  }
 }
 
 /* ***************************************************************** */
