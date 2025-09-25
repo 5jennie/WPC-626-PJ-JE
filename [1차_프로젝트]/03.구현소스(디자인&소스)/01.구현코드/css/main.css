@@ -163,7 +163,7 @@ body {
 .main-container {
   display: flex;
   height: 100%;
-  animation: main-ain 70s infinite 20s;
+  animation: main-ain 70s infinite 2s;
 }
 
 /* 각 배너 (슬라이드 한 장) */
@@ -250,6 +250,10 @@ body {
     transform: translateX(-200%);
     /* 1,2,3번째 보여줌 (다음 루프와 같은 위치) */
   }
+}
+
+.nav-btn nav-prev {
+  
 }
 
 /* ***************************************************************** */
