@@ -18,7 +18,7 @@ body {
 /* Header */
 
 .hero-section {
-    height: 100vh;
+  height: 100vh;
   max-height: 1080px;
   min-height: 800px; /* 최소 높이 보장 */
   display: flex;
@@ -31,7 +31,7 @@ body {
   height: 250px; /* 고정 높이 */
   /* 최소 높이 보장 */
   min-height: 150px;
-    display: flex;
+  display: flex;
   align-items: center;
   flex-shrink: 0; /* 높이 고정 */
 }
@@ -44,8 +44,7 @@ body {
   /* 수직 중앙 정렬 */
   padding-top: 3vh;
 
-   width: 100%;
-
+  width: 100%;
 }
 
 /* 전체 카테고리 옆으로 흐르게 */
@@ -164,7 +163,7 @@ body {
 .main-container {
   display: flex;
   height: 100%;
-  animation: main-ain 36s infinite 10s; /* 6개 × 6초 = 36초 */
+  animation: main-ain 70s infinite 20s;
 }
 
 /* 각 배너 (슬라이드 한 장) */
@@ -214,9 +213,7 @@ body {
 /* 메인배너 정보 박스 호버시 */
 .book-info:hover {
   /* 그라데이션 */
-
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-  /* flex-basis: calc(100% / 3); */
 }
 
 /* 호버시 텍스트 흰색으로 바뀌기 */
