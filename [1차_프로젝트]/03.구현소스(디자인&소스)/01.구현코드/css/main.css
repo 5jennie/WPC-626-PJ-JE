@@ -11,6 +11,7 @@
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 /* ***************************************************************** */
@@ -18,9 +19,10 @@ body {
 /* Header */
 
 .hero-section {
-  height: 100vh;
-  max-height: 1080px;
-  min-height: 800px; /* 최소 높이 보장 */
+  height: auto;
+  /* max-height: 1080px; */
+  min-height: 100vh; /* 최소 높이 보장 */
+  max-width: none;
   display: flex;
   flex-direction: column;
   z-index: 1;
@@ -155,6 +157,7 @@ body {
   position: relative;
   width: 100%;
   flex: 1;
+  border-bottom: 2px solid;
 }
 
 /* Swiper 컨테이너 */
@@ -164,7 +167,8 @@ body {
 }
 
 .swiper-wrapper {
-  display: flex !important;
+  height: calc(100vh - 250px);
+  display: flex;
   align-items: stretch;
 }
 
@@ -172,7 +176,7 @@ body {
 .swiper-slide.main-bn {
   position: relative;
   flex-shrink: 0;
-  width: calc(100% / 3) !important;
+  width: calc(100% / 3);
   height: 100%;
   overflow: hidden;
   box-sizing: border-box;
@@ -280,7 +284,7 @@ body {
 /* 배너 바로 밑에 있는 탭 버튼 3종 */
 /* 탭존 전체 설정 */
 .nav-tabs {
-  margin-top: 200px;
+  margin-top: 100px;
   margin-bottom: 60px;
   display: flex;
   justify-content: center;
@@ -304,7 +308,6 @@ body {
 .book-section {
   max-width: 1720px;
   margin: auto;
-  /* padding: 0 20px; */
 }
 
 /* 도서 세션 내용 */
@@ -319,7 +322,7 @@ body {
   display: flex;
   text-align: center;
   cursor: pointer;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* 도서 이미지 셋팅 */
@@ -327,6 +330,15 @@ body {
   width: 320px;
   height: 450px;
   object-fit: cover;
+  transition: 0.3s ease;
+}
+
+/* 도서 세션 호버 효과 */
+.book-item:hover .book-cover {
+  /* 그라데이션 */
+  /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)); */
+  scale: 1.05;
+  filter: brightness(50%);
 }
 
 /* ***************************************************************** */
