@@ -94,26 +94,6 @@ function initNavTabs() {
   });
 }
 
-// 책 아이템 호버 효과
-// function initBookHover() {
-//   const bookItems = document.querySelectorAll(".book-item");
-
-//   bookItems.forEach((item) => {
-//     item.addEventListener("mouseenter", function () {
-//       this.style.transform = "scale(1.05)";
-//       this.style.transition = "transform 0.3s ease";
-//     });
-
-//     item.addEventListener("mouseleave", function () {
-//       this.style.transform = "scale(1)";
-//     });
-
-//     item.addEventListener("click", function () {
-//       console.log("책 클릭됨:", this);
-//     });
-//   });
-// }
-
 // 스크롤 이벤트 처리
 function handleScroll() {
   const header = document.querySelector(".header");

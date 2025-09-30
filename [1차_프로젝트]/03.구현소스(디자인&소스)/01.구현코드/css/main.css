@@ -233,9 +233,6 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
   z-index: 10;
   cursor: pointer;
 }
@@ -335,9 +332,7 @@ body {
 
 /* 도서 세션 호버 효과 */
 .book-item:hover .book-cover {
-  /* 그라데이션 */
-  /* background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)); */
-  scale: 1.05;
+  scale: 1.02;
   filter: brightness(50%);
 }
 
