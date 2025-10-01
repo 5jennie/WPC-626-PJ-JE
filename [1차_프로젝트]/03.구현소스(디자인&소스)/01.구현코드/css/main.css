@@ -21,7 +21,8 @@ body {
 .hero-section {
   height: auto;
   /* max-height: 1080px; */
-  min-height: 100vh; /* 최소 높이 보장 */
+  min-height: 100vh;
+  /* 최소 높이 보장 */
   max-width: none;
   display: flex;
   flex-direction: column;
@@ -31,23 +32,32 @@ body {
 .header {
   background: white;
   /* 헤더 높이 고정 */
-  height: 250px; /* 고정 높이 */
-  /* 최소 높이 보장 */
+  /* height: 250px;  */
+  /* 고정 높이 */
   min-height: 150px;
+  /* 최소 높이 보장 */
   display: flex;
   align-items: center;
-  flex-shrink: 0; /* 높이 고정 */
+  flex-shrink: 0;
+  /* 높이 고정 */
+
+  /* sticky 기능때문에 추가 */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
 }
 
 /* 헤더안에 들어가는 컨텐츠 */
 .header-container {
-  border-bottom: solid 0.2vh;
+  border-bottom: solid 2px #000;
   display: flex;
   justify-content: space-between;
   /* 수직 중앙 정렬 */
   padding-top: 3vh;
-
   width: 100%;
+  padding: 30px 0 20px 0;
+  transition: all 0.4s ease;
 }
 
 /* 전체 카테고리 옆으로 흐르게 */
@@ -147,6 +157,22 @@ body {
   display: flex;
   /* KR과 EN 사이만 좁은 간격 */
   gap: 8px;
+}
+
+/* 스크롤 효과 */
+/* 1단계 */
+.header.scroll-stage-1 .header-container {
+  padding: 20px 0 15px 0;
+}
+
+/* 2단계 */
+.header.scroll-stage-2 .header-container {
+  padding: 15px 0 10px 0;
+}
+
+/* 3단계 */
+.header.scroll-stage-3 .header-container {
+  padding: 10px 0;
 }
 
 /* ****************************** */
