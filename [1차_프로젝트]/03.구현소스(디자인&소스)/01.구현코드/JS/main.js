@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 다른 초기화 함수들 실행
   initLanguageButtons();
   initNavTabs();
-//   initBookHover();
+  //   initBookHover();
 });
 
 // 언어 버튼 기능
@@ -76,38 +76,6 @@ function smoothScrollTo(target) {
   }
 }
 
-// 네비게이션 탭 클릭 이벤트
-function initNavTabs() {
-  const navTabs = document.querySelectorAll(".nav-tab");
-
-  navTabs.forEach((tab) => {
-    tab.addEventListener("click", function (e) {
-      e.preventDefault();
-      navTabs.forEach((t) => t.classList.remove("active"));
-      this.classList.add("active");
-
-      const target = this.getAttribute("href");
-      if (target && target !== "#") {
-        smoothScrollTo(target);
-      }
-    });
-  });
-}
-
-// 스크롤 이벤트 처리
-function handleScroll() {
-  const header = document.querySelector(".header");
-  if (!header) return;
-
-  if (window.scrollY > 100) {
-    header.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
-    header.style.backdropFilter = "blur(10px)";
-  } else {
-    header.style.backgroundColor = "white";
-    header.style.backdropFilter = "none";
-  }
-}
-
 // 반응형 처리
 function handleResize() {
   const isMobile = window.innerWidth <= 768;
@@ -125,13 +93,3 @@ function handleResize() {
     }
   });
 }
-
-// 이벤트 리스너 등록
-window.addEventListener("scroll", handleScroll);
-window.addEventListener("resize", handleResize);
-
-// 페이지 로드 완료
-window.addEventListener("load", function () {
-  handleResize();
-  console.log("위고 출판사 페이지 로드 완료");
-});

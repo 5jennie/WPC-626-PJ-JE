@@ -316,6 +316,7 @@ body {
 
 /* 도서 셋팅 */
 .book-item {
+  position: relative;
   display: flex;
   text-align: center;
   cursor: pointer;
@@ -330,10 +331,44 @@ body {
   transition: 0.3s ease;
 }
 
+/* 도서명 노출 */
+.book-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  padding: 20px;
+  color: #ffffff;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  pointer-events: none; /* 클릭 방지 */
+  text-align: center;
+}
+
+/* 도서명 셋팅 - 책 제목 */
+.book-title h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 도서명 셋팅 - 작가명 */
+.book-title p {
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
 /* 도서 세션 호버 효과 */
 .book-item:hover .book-cover {
-  scale: 1.02;
+  transform: scale(1.02);
   filter: brightness(50%);
+}
+
+/* 도서명 호버 효과 */
+.book-item:hover .book-title {
+  opacity: 1;
 }
 
 /* ***************************************************************** */
