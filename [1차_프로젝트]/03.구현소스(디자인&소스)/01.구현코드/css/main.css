@@ -32,13 +32,13 @@ body {
 .header {
   background: white;
   /* 헤더 높이 고정 */
-  /* height: 250px;  */
+  height: 250px; 
   /* 고정 높이 */
   min-height: 150px;
   /* 최소 높이 보장 */
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
+  /* display: flex; */
+  /* align-items: center; */
+  /* flex-shrink: 0; */
   /* 높이 고정 */
 
   /* sticky 기능때문에 추가 */
@@ -53,10 +53,11 @@ body {
   border-bottom: solid 2px #000;
   display: flex;
   justify-content: space-between;
+
   /* 수직 중앙 정렬 */
   padding-top: 3vh;
   width: 100%;
-  padding: 30px 0 20px 0;
+  padding: 30px 0 0 0;
   transition: all 0.4s ease;
 }
 
@@ -72,7 +73,14 @@ body {
 
 /* 로고박스 카데고리 중앙에 로고 */
 .logo {
+  flex: 1;
+  text-align: center;
+}
+
+.logo img {
+  /* height: 80px; */
   width: 100%;
+  transition: all 0.4s ease;
 }
 
 /* ****** 왼쪽 카테고리 구역 효과 ****** */
@@ -87,6 +95,7 @@ body {
 .nav-left a {
   font-size: 25px;
   color: #000000;
+  transition: all 0.4s ease;
 }
 
 /* 왼쪽 호버시 텍스트 컬러 바뀌기 */
@@ -108,6 +117,7 @@ body {
 .nav-right a {
   font-size: 25px;
   color: #000000;
+  transition: all 0.4s ease;
 }
 
 /* 오른쪽 호버시 텍스트 컬러 바뀌기 */
@@ -119,24 +129,8 @@ body {
 
 /* ****** 언어 설정 구역 효과 ****** */
 /* 언어 설정버튼 */
-/* KR 버튼 */
-.lang-kr {
-  padding: 5px 15px;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-/* KR 호버효과 */
-.lang-kr:hover,
-.lang-kr.active {
-  background: #137cf4;
-  color: #fff;
-  border-color: #137cf4;
-}
-
-/* EN 버튼 */
+/* KR, EN 버튼 */
+.lang-kr,
 .lang-en {
   padding: 5px 15px;
   border: 1px solid #ddd;
@@ -145,13 +139,17 @@ body {
   cursor: pointer;
   transition: all 0.3s;
 }
-/* EN 호버효과 */
+
+/* KR, EN 호버효과 */
+.lang-kr:hover,
+.lang-kr.active,
 .lang-en:hover,
 .lang-en.active {
   background: #137cf4;
   color: #fff;
   border-color: #137cf4;
 }
+
 /* 언어 버튼 컨테이너 */
 .lang-buttons {
   display: flex;
@@ -162,18 +160,15 @@ body {
 /* 스크롤 효과 */
 /* 1단계 */
 .header.scroll-stage-1 .header-container {
-  padding: 20px 0 15px 0;
+  transform: translateY(20%);
+  opacity: 0;
+  transition: 1.2s ease-in-out;
 }
 
-/* 2단계 */
-.header.scroll-stage-2 .header-container {
-  padding: 15px 0 10px 0;
+.header.scroll-stage-1 .logo img {
+  height: 60px;
 }
 
-/* 3단계 */
-.header.scroll-stage-3 .header-container {
-  padding: 10px 0;
-}
 
 /* ****************************** */
 
