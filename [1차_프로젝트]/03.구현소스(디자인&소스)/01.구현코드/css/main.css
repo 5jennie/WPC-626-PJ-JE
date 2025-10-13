@@ -32,20 +32,13 @@ body {
 .header {
   background: white;
   /* 헤더 높이 고정 */
-  height: 250px; 
-  /* 고정 높이 */
-  min-height: 150px;
-  /* 최소 높이 보장 */
-  /* display: flex; */
-  /* align-items: center; */
-  /* flex-shrink: 0; */
-  /* 높이 고정 */
+  /* height: 250px;  */
 
   /* sticky 기능때문에 추가 */
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-out;
 }
 
 /* 헤더안에 들어가는 컨텐츠 */
@@ -58,7 +51,7 @@ body {
   padding-top: 3vh;
   width: 100%;
   padding: 30px 0 0 0;
-  transition: all 0.4s ease;
+  transition: padding 0.5s ease;
 }
 
 /* 전체 카테고리 옆으로 흐르게 */
@@ -78,9 +71,8 @@ body {
 }
 
 .logo img {
-  /* height: 80px; */
   width: 100%;
-  transition: all 0.4s ease;
+  transition: all 0.5s ease;
 }
 
 /* ****** 왼쪽 카테고리 구역 효과 ****** */
@@ -156,19 +148,6 @@ body {
   /* KR과 EN 사이만 좁은 간격 */
   gap: 8px;
 }
-
-/* 스크롤 효과 */
-/* 1단계 */
-.header.scroll-stage-1 .header-container {
-  transform: translateY(20%);
-  opacity: 0;
-  transition: 1.2s ease-in-out;
-}
-
-.header.scroll-stage-1 .logo img {
-  height: 60px;
-}
-
 
 /* ****************************** */
 
@@ -300,7 +279,8 @@ body {
 /* ***************************************************************** */
 /* 2-1. Navigation Tabs */
 /* 배너 바로 밑에 있는 탭 버튼 3종 */
-/* 탭존 전체 설정 */
+
+/* 탭존 구역 */
 .nav-tabs {
   margin-top: 100px;
   margin-bottom: 60px;
@@ -310,19 +290,64 @@ body {
   text-decoration: none;
 }
 
-.nav-tabs a:hover {
-  text-decoration: underline;
-}
-
-/* 탭존 내용물 설정 */
-.nav-tab {
+.nav-tabs a {
+  position: relative;
   font-size: 20px;
   color: #000000;
+  transition: all 0.4s ease;
+  display: inline-block;
+  padding-bottom: 12px;
+  text-decoration: none;
+}
+
+/* 탭 호버시 텍스트 컬러 바뀌기 */
+.nav-tabs a:hover {
+  color: #137cf4;
+}
+
+/* 활성화된 탭 스타일 */
+.nav-tabs a.active {
+  color: #137cf4;
+}
+
+/* 활성화된 탭 하단 밑줄 */
+.nav-tabs a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 30px);
+  height: 2px;
+  background-color: #137cf4;
+  animation: slideIn 0.3s ease forwards;
+}
+
+/* 밑줄 애니메이션 */
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+width: calc(100% + 30px);
+  }
 }
 
 /* ***************************************************************** */
 /* 2-2. Book Section */
 /* 도서 세션 전체 설정 */
+/* 책 아이템 초기 상태 */
+.book-item {
+  position: relative;
+  display: flex;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 .book-section {
   max-width: 1720px;
   margin: auto;

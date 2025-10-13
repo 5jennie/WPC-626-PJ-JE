@@ -125,16 +125,17 @@
     <!-- 2-1. Navigation Tabs -->
     <!-- 배너 바로 밑에 있는 탭 버튼 3종 -->
     <nav class="nav-tabs">
-      <a href="#" class="nav-tab">New Books</a>
-      <a href="#" class="nav-tab">Best</a>
-      <a href="#" class="nav-tab">All</a>
+      <a href="javascript:void(0)" class="nav-tab">New Books</a>
+      <a href="javascript:void(0)" class="nav-tab">Best</a>
+      <a href="all-books.html" class="nav-tab">All</a>
     </nav>
 
     <!-- ***************************************************************** -->
     <!-- 2-2. Book Section -->
-    <!-- 첫번째 줄 5권 -->
     <main class="book-section">
-      <div class="book-row">
+      <!-- New Books 섹션 -->
+      <div class="book-row" data-category="new">
+        <!-- 첫번째 줄 5권 -->
         <div class="book-item">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
@@ -197,7 +198,7 @@
       </div>
 
       <!-- 두번째 줄 5권 -->
-      <div class="book-row">
+      <div class="book-row" data-category="new">
         <div class="book-item">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/그림책/G-001/composite.png"
@@ -205,10 +206,14 @@
             class="book-cover"
           />
           <div class="book-title">
-            <h4>저녁이면 </br>
-              눈 냄새가난다</h4>
-            <p>사라 스트리츠베리,</br>
-              사라 룬드베리</p>
+            <h4>
+              저녁이면 <br />
+              눈 냄새가난다
+            </h4>
+            <p>
+              사라 스트리츠베리,<br />
+              사라 룬드베리
+            </p>
           </div>
         </div>
 
@@ -243,8 +248,10 @@
             class="book-cover"
           />
           <div class="book-title">
-            <h4>우리는 언제나 </br>
-            타지에 있다</h4>
+            <h4>
+              우리는 언제나 <br />
+              타지에 있다
+            </h4>
             <p>고예나</p>
           </div>
         </div>
@@ -258,6 +265,139 @@
           <div class="book-title">
             <h4>아무튼, 사투리</h4>
             <p>다드래기</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ***************************************************************** -->
+      <!-- Best Books 섹션 (클릭시 노출) -->
+      <div class="book-row" data-category="best" style="display: none">
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>아무튼, 레코드</h4>
+            <p>성진환</p>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-004/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>흰 고래의 흼에 대하여</h4>
+            <p>홍한별</p>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-008/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>슬픈 세상의 기쁜 말</h4>
+            <p>정혜윤</p>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-005/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>아무튼, 디지몬</h4>
+            <p>천선란</p>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>종이 묵주</h4>
+            <p>박문영</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 두번째 줄 5권 -->
+      <div class="book-row" data-category="best" style="display: none">
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-002/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>아무튼, 명언</h4>
+            <p>하지현</p>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-004/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>아무튼, SF</h4>
+            <p>김초엽</p>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-002/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>단어 옆에 서기</h4>
+            <p>조모란</p>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-007/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>아무튼, 데모</h4>
+            <p>정보라</p>
+          </div>
+        </div>
+
+        <div class="book-item">
+          <img
+            src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/그림책/G-001/composite.png"
+            alt="Book Cover"
+            class="book-cover"
+          />
+          <div class="book-title">
+            <h4>
+              저녁이면 <br />
+              눈 냄새가난다
+            </h4>
+            <p>
+              사라 스트리츠베리,<br />
+              사라 룬드베리
+            </p>
           </div>
         </div>
       </div>
