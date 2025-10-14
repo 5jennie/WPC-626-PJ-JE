@@ -10,43 +10,11 @@
   </head>
 
   <body>
-    <!-- Hero Section (Header + Main을 1080px로 제한) -->
+    <!-- Header 불러올 위치 -->
+    <div id="header"></div>
+
+    <!-- Hero Section 시작 부분 추가 -->
     <div class="hero-section">
-      <!-- 1. 상단영역 -->
-      <header class="header">
-        <div class="header-container">
-          <!-- 1-1. 왼쪽 메뉴 -->
-          <nav class="nav-left">
-            <ul>
-              <li><a href="#" class="menu-books">Books</a></li>
-              <li><a href="#" class="menu-info">Info</a></li>
-            </ul>
-          </nav>
-
-          <!-- 1-2. 로고박스 -->
-          <section class="logo-box">
-            <h1 class="logo">
-              <a href="#">
-                <img
-                  src="../../03.구현소스(디자인&소스)/02.구현디자인/01.로고/logo_B1.png"
-                  alt="logo"
-                />
-              </a>
-            </h1>
-          </section>
-
-          <!-- 1-3. 오른쪽 메뉴 -->
-          <nav class="nav-right">
-            <ul>
-              <li><a href="#" class="menu-login">Login</a></li>
-              <li class="lang-buttons">
-                <button class="lang-btn lang-kr">KR</button>
-                <button class="lang-btn lang-en">EN</button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
 
       <!-- ***************************************************************** -->
       <!-- 2. 메인영역 -->
@@ -403,62 +371,12 @@
       </div>
     </main>
 
-    <!-- ***************************************************************** -->
-    <!-- 3. 하단영역 -->
-    <!-- Footer -->
-    <footer class="footer">
-      <!-- 링크로 이동하기 -->
-      <div class="footer-container">
-        <div class="footer-links">
-          <a href="#">회사 소개 페이지</a>
-          <a href="#">이용약관</a>
-          <a href="#">개인정보 처리방침</a>
-        </div>
-
-        <!-- 위고 출판사 주소 및 대표자명 -->
-        <div class="footer-content">
-          <div class="footer-info">
-            (주)위고<br />
-            경기도 파주시 광인사길 209 3층<br />
-            사업자등록번호 141-90-49061<br />
-            대표자 조소영, 이재현
-          </div>
-
-          <!-- 위고 출판사 CS 관련 -->
-          <div class="footer-info">
-            Customer Center<br />
-            구매문의 0507-1342-9276<br />
-            상품문의 0507-1342-9276<br />
-            (09:00 - 17:00 / 휴계시간 11:30 - 13:00)<br />
-            @hugobooks
-          </div>
-
-          <!-- SNS 버튼 -->
-          <div class="footer-sns">
-            <!-- 인스타 -->
-            <a href="#" class="sns-icon"
-              ><img
-                src="../../03.구현소스(디자인&소스)/02.구현디자인/04.아이콘/Vector_I.svg"
-            /></a>
-            <!-- 네이버 -->
-            <a href="#" class="sns-icon"
-              ><img
-                src="../../03.구현소스(디자인&소스)/02.구현디자인/04.아이콘/Vector_N.svg"
-            /></a>
-            <!-- 엑스 -->
-            <a href="#" class="sns-icon"
-              ><img
-                src="../../03.구현소스(디자인&소스)/02.구현디자인/04.아이콘/Vector_X.svg"
-            /></a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Swiper JS 추가 -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Footer 불러올 위치 -->
+    <div id="footer"></div>
 
     <!-- JavaScript 파일 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
+
   </body>
 </html>

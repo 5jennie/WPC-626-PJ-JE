@@ -1,4 +1,20 @@
 // 위고 출판사 메인 페이지 JS - main.js /////////
+/* 위고 출판사 서브 페이지 js - all-books.css */
+
+// 컴포넌트 로드 함수
+async function loadComponent(selector, file) {
+  try {
+    const response = await fetch(file);
+    const html = await response.text();
+    document.querySelector(selector).innerHTML = html;
+  } catch (error) {
+    console.error(`${file} 로드 실패:`, error);
+  }
+}
+
+// Header와 Footer 로드
+loadComponent("#header", "./hero.html");
+loadComponent("#footer", "./footer.html");
 
 /* ***************************************************************** */
 
@@ -21,7 +37,7 @@ window.addEventListener("load", function () {
 
 /* ***************************************************************** */
 
-/* ****** 언어 설정 구역 효과 ****** */
+/* ****** hero - 언어 설정 구역 효과 ****** */
 /* 언어 설정버튼 */
 /* KR, EN 버튼 */
 function initLanguageButtons() {
@@ -44,61 +60,53 @@ function initLanguageButtons() {
 }
 
 /* ***************************************************************** */
-/* 2. 메인영역 */
-// Swiper 초기화 (3분할 유지)
+  // main - Swiper 초기화
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Swiper 설정 - 3개씩 보이도록 설정
-  const swiper = new Swiper(".main-swiper", {
-    // 무한 루프
-    loop: true,
+  const swiperElement = document.querySelector(".main-swiper");
+  
+  if (swiperElement) {
+    const swiper = new Swiper(".main-swiper", {
+      loop: true,
+      speed: 800,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      keyboard: {
+        enabled: true,
+      },
+      slidesPerView: 3,
+      slidesPerGroup: 1,
+      spaceBetween: 0,
+      watchOverflow: false,
+      effect: "slide",
+    });
+  }
 
-    // 전환 속도
-    speed: 800,
-
-    // 자동 재생 (5초마다)
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-
-    // 네비게이션 버튼
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-
-    // 키보드 조작
-    keyboard: {
-      enabled: true,
-    },
-
-    // 3분할 핵심 설정
-    slidesPerView: 3,
-    slidesPerGroup: 1,
-    spaceBetween: 0,
-    watchOverflow: false,
-
-    // 부드러운 전환
-    effect: "slide",
-  });
-
-  // 탭 기능 초기화 호출
+  // 메인 페이지 탭 기능 초기화
   initBookTabs();
-
-  // 언어 버튼 초기화 호출
-  initLanguageButtons();
+  
+  // All Books 페이지 카테고리 탭 초기화
+  initCategoryTabs();
+  
+  console.log("위고 출판사 페이지 로드 완료");
 });
 
 /* ***************************************************************** */
-/* 2-1. Navigation Tabs */
-/* 배너 바로 밑에 있는 탭 버튼 3종 */
+/* main-Navigation Tabs */
+/* 메인 배너 바로 밑에 있는 탭 버튼 3종 */
 
 // 탭 기능 초기화
 function initBookTabs() {
   const tabs = document.querySelectorAll(".nav-tab");
   const allbookRows = document.querySelectorAll(".book-row");
 
-  // 탭이 없으면 종료
+  // 탭이 없으면 종료 (all-books 페이지)
   if (tabs.length === 0 || allbookRows.length === 0) return;
 
   // 첫 번째 탭 활성화
@@ -141,7 +149,7 @@ function initBookTabs() {
       }
 
       // 해당 카테고리의 책만 표시
-      allBookRows.forEach((row, i) => {
+      allbookRows.forEach((row, i) => {
         if (row.getAttribute("data-category") === category) {
           row.style.display = "flex";
           setTimeout(() => animateBooks(row), i * 50);
@@ -153,23 +161,62 @@ function initBookTabs() {
   });
 }
 
-// 책 애니메이션 효과
-function animateBooks(row) {
-  const books = row.querySelectorAll(".book-item");
+/* ***************************************************************** */
+// 서브페이지 All Books 카테고리 탭 기능
 
-  books.forEach((book, index) => {
-    // 초기 상태
-    book.style.opacity = "0";
-    book.style.transform = "translateY(20px)";
+// 탭 기능 초기화
+function initCategoryTabs() {
+  const categoryTabs = document.querySelectorAll(".category-tab");
+  const bookItems = document.querySelectorAll(".book-item");
 
-    // 순차적으로 나타나기
-    setTimeout(() => {
-      book.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-      book.style.opacity = "1";
-      book.style.transform = "translateY(0)";
-    }, index * 100);
+  console.log("카테고리 탭 개수:", categoryTabs.length);
+  console.log("책 아이템 개수:", bookItems.length);
+
+  if (categoryTabs.length === 0) {
+    console.log("카테고리 탭 없음 - 메인 페이지");
+    return;
+  }
+
+  console.log("카테고리 탭 초기화 완료");
+
+  // 각 탭에 클릭 이벤트 추가
+  categoryTabs.forEach((tab) => {
+    tab.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      console.log("탭 클릭:", this.textContent.trim());
+
+      // 모든 탭에서 active 제거
+      categoryTabs.forEach((t) => t.classList.remove("active"));
+
+      // 클릭한 탭에 active 추가
+      this.classList.add("active");
+
+      // 탭 텍스트 가져오기
+      const category = this.textContent.trim();
+
+      // 책 필터링
+      bookItems.forEach((item) => {
+        const itemCategory = item.getAttribute("data-category");
+
+        if (category === "All") {
+          item.style.display = "block";
+        } else if (category === "아무튼 시리즈" && itemCategory === "아무튼") {
+          item.style.display = "block";
+        } else if (category === "점선면 시리즈" && itemCategory === "점선면") {
+          item.style.display = "block";
+        } else if (category === "위고의 그림책" && itemCategory === "그림책") {
+          item.style.display = "block";
+        } else if (category === "인기순" && itemCategory === "인기") {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
   });
 }
+
 
 /* ***************************************************************** */
 
@@ -185,9 +232,8 @@ function smoothScrollTo(target) {
 }
 
 /* ***************************************************************** */
+// 페이지 로드 완료 메시지
 
-// 페이지 로드 완료
 window.addEventListener("load", function () {
-  handleResize();
   console.log("위고 출판사 페이지 로드 완료");
 });
