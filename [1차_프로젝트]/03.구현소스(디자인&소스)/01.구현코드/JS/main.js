@@ -170,6 +170,7 @@ function initBookTabs() {
 let currentPage = 1;
 const itemsPerPage = 15;
 let currentCategory = "All";
+let currentSortType = "name"; // 책 정렬타입(가나다 순)
 
 // 탭 기능 초기화
 function initCategoryTabs() {
@@ -206,6 +207,11 @@ function initCategoryTabs() {
       // 탭 텍스트 가져오기
       currentCategory = this.textContent.trim();
       currentPage = 1; // 탭 변경시 1페이지로 리셋
+
+      // 정렬 타입 설정
+      if (currentCategory === "인기순") {
+        currentSortType = "sales"; // 인기순
+      } else currentSortType = "name"; // 가나다 순
 
       // 필터링 및 페이지네이션 적용
       filterAndPaginate(currentCategory, currentPage);
@@ -256,8 +262,43 @@ function filterAndPaginate(category, page) {
       filteredBooks.push(item);
     } else if (category === "위고의 그림책" && itemCategory === "그림책") {
       filteredBooks.push(item);
+    } else if (category === "기타" && itemCategory === "기타") {
+      filteredBooks.push(item);
+    } else if (category === "인기순") {
+      filteredBooks.push(item);
     }
   });
+
+  // 정렬 로직
+  if (currentSortType === "sales") {
+    // 인기순 (data-rank 기준 오름차순)
+    filteredBooks.sort((a, b) => {
+      const rankA = parseInt(a.getAttribute("data-rank")) || Infinity;
+      const rankB = parseInt(b.getAttribute("data-rank")) || Infinity;
+
+      // 둘 다 순위가 있으면 순위로 정렬
+      if (rankA !== Infinity && rankB !== Infinity) {
+        return rankA - rankB;
+      }
+
+      // 둘다 순위가 없으면 가나다 순으로 정렬
+      if (rankA === Infinity && rankB === Infinity) {
+        const titleA = a.getAttribute("data-title").toLowerCase();
+        const titleB = b.getAttribute("data-title").toLowerCase();
+        return titleA.localeCompare(titleB);
+      }
+
+      // 하나만 순위가 있으면 순위 있는 게 앞으로
+      return rankA - rankB;
+    });
+  } else {
+    // 가나다순 정렬
+    filteredBooks.sort((a, b) => {
+      const titleA = a.getAttribute("data-title") || "";
+      const titleB = b.getAttribute("data-title") || "";
+      return titleA.localeCompare(titleB, "ko");
+    });
+  }
 
   // 모든 책 숨기기
   bookItems.forEach((item) => {
@@ -270,10 +311,21 @@ function filterAndPaginate(category, page) {
 
   filteredBooks.slice(startIndex, endIndex).forEach((item) => {
     item.style.display = "block";
+
+    // 애니메이션 효과
+    item.style.opacity = "0";
+    item.style.transform = "translateY(20px)";
+
+    setTimeout(() => {
+      item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+      item.style.opacity = "1";
+      item.style.transform = "translateY(0)";
+    }, 100);
   });
 
   console.log(`${category} - 페이지 ${page}: ${startIndex}~${endIndex} 표시`);
 }
+
 // 전체 페이지 수 계산
 function getTotalPages(category) {
   const bookItems = document.querySelectorAll(".book-item");
@@ -289,6 +341,8 @@ function getTotalPages(category) {
     } else if (category === "점선면 시리즈" && itemCategory === "점선면") {
       count++;
     } else if (category === "위고의 그림책" && itemCategory === "그림책") {
+      count++;
+    } else if (category === "인기순") {
       count++;
     }
   });
@@ -349,7 +403,7 @@ function updatePagination() {
 }
 
 /* ***************************************************************** */
-// 책 애니메이션 효과
+// main page 책 애니메이션 효과
 
 function animateBooks(row) {
   const books = row.querySelectorAll(".book-item");
@@ -386,27 +440,23 @@ window.addEventListener("load", function () {
   console.log("위고 출판사 페이지 로드 완료");
 });
 
-
 // 대상: .logo img
 const scbody = document.body.classList;
 
-window.addEventListener('scroll',()=>{
+window.addEventListener("scroll", () => {
   let scTop = window.scrollY;
-  console.log("scroll~~~!",scTop)
+  console.log("scroll~~~!", scTop);
 
-  if(scTop > 300){
-    scbody.add('on3');    
-    scbody.remove('on1','on2');
+  if (scTop > 300) {
+    scbody.add("on3");
+    scbody.remove("on1", "on2");
+  } else if (scTop > 200) {
+    scbody.add("on2");
+    scbody.remove("on1", "on3");
+  } else if (scTop > 100) {
+    scbody.add("on1");
+    scbody.remove("on2", "on3");
+  } else {
+    scbody.remove("on1", "on2", "on3");
   }
-  else if(scTop > 200){
-    scbody.add('on2');
-    scbody.remove('on1','on3');
-  }
-  else if(scTop > 100){
-    scbody.add('on1');
-    scbody.remove('on2','on3');
-  }
-  else{
-    scbody.remove('on1','on2','on3');
-  }
-})
+});

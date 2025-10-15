@@ -245,9 +245,7 @@ body {
 .book-cover {
   position: relative;
   left: 50%;
-  width: 140%;
-  /* width: 320px;
-  height: 450px; */
+  width: 100%;
   object-fit: cover;
   translate: -50%;
   transition: 0.3s ease;

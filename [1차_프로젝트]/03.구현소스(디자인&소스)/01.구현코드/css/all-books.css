@@ -41,7 +41,7 @@ body {
 /* 카데고리 개별 설정 */
 .category-tab {
   position: relative;
-  font-size: 20px;
+  font-size: 16px;
   color: #000000;
   transition: all 0.4s ease;
   display: inline-block;
@@ -86,14 +86,6 @@ body {
   }
 }
 
-.all-books .book-grid .book-item:hover .book-cover {
-  transform: none;
-  filter: none;
-}
-
-.all-books .book-grid .book-item:hover .book-title {
-  opacity: 0;
-}
 
 /* ***************************************************************** */
 
@@ -133,11 +125,72 @@ body {
   font-size: 16px;
 }
 
-/* ***************************************************************** */
+.all-books .book-grid .book-item:hover .book-cover {
+  transform: none;
+  filter: none;
+}
 
-/* 3. 페이지 표시 */
+.all-books .book-grid .book-item:hover .book-title {
+  opacity: 0;
+}
+
+/* ***************************************************************** */
+/* 3. 페이지네이션 */
+
 .pagination {
-  text-align: center;
-  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 15px;
+}
+
+.page-btn,
+.page-num {
+  min-width: 25px;
+  height: 25px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #666;
+  font-size: 14px;
+  font-family: "Century_Gothic", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+}
+
+.page-btn:hover:not(:disabled),
+.page-num:hover {
+  border-color: #000;
+  color: #000;
+  background: white;
+}
+
+.page-num.active {
+  background: #000;
+  color: white;
+  border-color: #000;
+}
+
+.page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #ddd;
+}
+
+.page-btn.prev,
+.page-btn.next {
+  font-size: 14px;
+  font-weight: normal;
 }
 
