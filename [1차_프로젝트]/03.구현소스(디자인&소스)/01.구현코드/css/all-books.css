@@ -86,6 +86,15 @@ body {
   }
 }
 
+.all-books .book-grid .book-item:hover .book-cover {
+  transform: none;
+  filter: none;
+}
+
+.all-books .book-grid .book-item:hover .book-title {
+  opacity: 0;
+}
+
 /* ***************************************************************** */
 
 /* 2. 책 그리드 레이아웃 */
@@ -131,3 +140,4 @@ body {
   text-align: center;
   margin-top: 40px;
 }
+
