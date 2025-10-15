@@ -385,3 +385,28 @@ function smoothScrollTo(target) {
 window.addEventListener("load", function () {
   console.log("위고 출판사 페이지 로드 완료");
 });
+
+
+// 대상: .logo img
+const scbody = document.body.classList;
+
+window.addEventListener('scroll',()=>{
+  let scTop = window.scrollY;
+  console.log("scroll~~~!",scTop)
+
+  if(scTop > 300){
+    scbody.add('on3');    
+    scbody.remove('on1','on2');
+  }
+  else if(scTop > 200){
+    scbody.add('on2');
+    scbody.remove('on1','on3');
+  }
+  else if(scTop > 100){
+    scbody.add('on1');
+    scbody.remove('on2','on3');
+  }
+  else{
+    scbody.remove('on1','on2','on3');
+  }
+})

@@ -10,7 +10,6 @@
 @import url(./footer.css);
 @import url(./hero.css);
 
-
 /* ***************************************************************** */
 
 body {
@@ -37,6 +36,12 @@ body {
   height: calc(100vh - 250px);
   display: flex;
   align-items: stretch;
+}
+@media (max-width: 1600px) {
+  .swiper-wrapper {
+    height: auto;
+    aspect-ratio: 1.5;
+  }
 }
 
 /* Swiper 슬라이드 - 3분의 1 크기 유지 */
@@ -196,7 +201,7 @@ body {
     width: 0;
   }
   to {
-width: calc(100% + 30px);
+    width: calc(100% + 30px);
   }
 }
 
@@ -238,9 +243,13 @@ width: calc(100% + 30px);
 
 /* 도서 이미지 셋팅 */
 .book-cover {
-  width: 320px;
-  height: 450px;
+  position: relative;
+  left: 50%;
+  width: 140%;
+  /* width: 320px;
+  height: 450px; */
   object-fit: cover;
+  translate: -50%;
   transition: 0.3s ease;
 }
 

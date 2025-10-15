@@ -22,10 +22,40 @@
   /* height: 250px;  */
 
   /* sticky 기능때문에 추가 */
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 1000;
   transition: all 0.3s ease-out;
+}
+body{
+  padding-top: 252px;
+  transition: padding-top 0.5s ease;
+}
+
+body.on1{
+  padding-top: 198px;
+}
+body.on1 .logo img{
+  width: 80%;
+  margin-top: -10px;
+}
+
+body.on2{
+  padding-top: 144px;
+}
+body.on2 .logo img{
+  width: 60%;
+  margin-top: -20px;
+
+}
+
+body.on3{
+  padding-top: 90px;
+}
+body.on3 .logo img{
+  width: 40%;
+  margin-top: -30px;
 }
 
 /* 헤더안에 들어가는 컨텐츠 */
