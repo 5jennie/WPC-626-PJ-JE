@@ -209,9 +209,12 @@ function initCategoryTabs() {
       currentPage = 1; // 탭 변경시 1페이지로 리셋
 
       // 정렬 타입 설정
+      // 인기순만 다르게, 나머지는 모두 가나다순
       if (currentCategory === "인기순") {
-        currentSortType = "sales"; // 인기순
-      } else currentSortType = "name"; // 가나다 순
+        currentSortType = "sales"; // 인기순만 순위 정렬
+      } else {
+        currentSortType = "name"; // All, 아무튼, 점선면, 그림책, 기타 모두 가나다순
+      }
 
       // 필터링 및 페이지네이션 적용
       filterAndPaginate(currentCategory, currentPage);
@@ -271,6 +274,7 @@ function filterAndPaginate(category, page) {
 
   // 정렬 로직
   if (currentSortType === "sales") {
+    console.log("인기순 정렬 실행");
     // 인기순 (data-rank 기준 오름차순)
     filteredBooks.sort((a, b) => {
       const rankA = parseInt(a.getAttribute("data-rank")) || Infinity;
@@ -283,9 +287,9 @@ function filterAndPaginate(category, page) {
 
       // 둘다 순위가 없으면 가나다 순으로 정렬
       if (rankA === Infinity && rankB === Infinity) {
-        const titleA = a.getAttribute("data-title").toLowerCase();
-        const titleB = b.getAttribute("data-title").toLowerCase();
-        return titleA.localeCompare(titleB);
+        const titleA = a.getAttribute("data-title") || "";
+        const titleB = b.getAttribute("data-title") || "";
+        return titleA.localeCompare(titleB, "ko", { sensitivity: "base" });
       }
 
       // 하나만 순위가 있으면 순위 있는 게 앞으로
