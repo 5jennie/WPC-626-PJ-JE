@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* 위고 출판사 info 페이지 CSS - info.css */
+
+/* 기본 CSS 불러오기 */
+@import url(./header.css);
+@import url(./main.css);
+
+/* ***************************************************************** */

@@ -10,6 +10,11 @@
 @import url(./footer.css);
 @import url(./hero.css);
 
+/* 미디어쿼리 */
+@import url(./responsive.css);
+
+
+
 /* ***************************************************************** */
 
 body {

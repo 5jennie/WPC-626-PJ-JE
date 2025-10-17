@@ -18,8 +18,65 @@ async function loadComponent(selector, file) {
 }
 
 // Header와 Footer 로드
-loadComponent("#header", "./hero.html");
-loadComponent("#footer", "./footer.html");
+loadComponent("#header", "./inc/hero.html");
+loadComponent("#footer", "./inc/footer.html");
+
+/* ***************************************************************** */
+
+// 책 데이터 로드 및 렌더링
+let booksData = [];
+
+// 페이지 로드 시 책 데이터 가져오기
+async function loadBooksData() {
+  try {
+    console.log("books.json 로드 중...");
+    const response = await fetch("./data/books.json");
+    booksData = await response.json();
+    renderBooks();
+  } catch (error) {
+    console.error("책 데이터 로드 실패:", error);
+  }
+}
+
+// 책 HTML 생성
+function renderBooks() {
+  const bookGrid = document.querySelector(".book-grid");
+  if (!bookGrid) {
+    console.log("book-grid 요소를 찾을 수 없음");
+    return;
+  }
+
+  console.log("책 데이터 로드 시작");
+  bookGrid.innerHTML = ""; // 기존 내용 제거
+
+  booksData.forEach((book) => {
+    const bookItem = document.createElement("div");
+    bookItem.className = "book-item";
+    bookItem.setAttribute("data-category", book.category);
+    bookItem.setAttribute("data-title", book.title);
+    if (book.rank) bookItem.setAttribute("data-rank", book.rank);
+
+    bookItem.innerHTML = `
+      <img src="${book.image}" alt="${book.title}" class="book-cover" />
+      <div class="book-info-text">
+        <p>「${book.title}」<br />${book.author}</p>
+      </div>
+    `;
+
+    bookGrid.appendChild(bookItem);
+  });
+
+  // 렌더링 후 탭 초기화 및 필터링
+
+  // 카테고리 탭 초기화
+  initCategoryTabs();
+
+  // 현재 카테고리와 페이지에 맞는 책 필터링 및 표시
+  filterAndPaginate(currentCategory, currentPage);
+
+  // 페이지네이션 버튼들(이전/다음)의 상태를 업데이트
+  updatePagination();
+}
 
 /* ***************************************************************** */
 
@@ -40,6 +97,46 @@ window.addEventListener("load", function () {
   }, 0);
 });
 
+/* ***************************************************************** */
+
+// 부드러운 스크롤 기능
+function smoothScrollTo(target) {
+  const element = document.querySelector(target);
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+}
+
+/* ***************************************************************** */
+// 페이지 로드 완료 메시지
+
+window.addEventListener("load", function () {
+  console.log("위고 출판사 페이지 로드 완료");
+});
+
+// 대상: .logo img
+const scbody = document.body.classList;
+
+window.addEventListener("scroll", () => {
+  let scTop = window.scrollY;
+  console.log("scroll~~~!", scTop);
+
+  if (scTop > 300) {
+    scbody.add("on3");
+    scbody.remove("on1", "on2");
+  } else if (scTop > 200) {
+    scbody.add("on2");
+    scbody.remove("on1", "on3");
+  } else if (scTop > 100) {
+    scbody.add("on1");
+    scbody.remove("on2", "on3");
+  } else {
+    scbody.remove("on1", "on2", "on3");
+  }
+});
 /* ***************************************************************** */
 
 /* ****** hero - 언어 설정 구역 효과 ****** */
@@ -95,8 +192,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // 메인 페이지 탭 기능 초기화
   initBookTabs();
 
-  // All Books 페이지 카테고리 탭 초기화
-  initCategoryTabs();
+  // All Books 페이지라면 책 데이터 로드
+  const bookGrid = document.querySelector(".book-grid");
+  if (bookGrid) {
+    console.log("All Books 페이지 - 데이터 로드 시작");
+    loadBooksData(); // 책 데이터 로드 → renderBooks() → initCategoryTabs() 자동 실행
+  }
 
   console.log("위고 출판사 페이지 로드 완료");
 });
@@ -164,7 +265,25 @@ function initBookTabs() {
   });
 }
 
+// main page 책 애니메이션 효과
+
+function animateBooks(row) {
+  const books = row.querySelectorAll(".book-item");
+
+  books.forEach((book, index) => {
+    book.style.opacity = "0";
+    book.style.transform = "translateY(20px)";
+
+    setTimeout(() => {
+      book.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+      book.style.opacity = "1";
+      book.style.transform = "translateY(0)";
+    }, index * 100);
+  });
+}
+
 /* ***************************************************************** */
+
 // 서브페이지 All Books 카테고리 탭 기능
 
 let currentPage = 1;
@@ -187,10 +306,6 @@ function initCategoryTabs() {
 
   console.log("카테고리 탭 초기화 완료");
 
-  // 초기 페이지 표시
-  filterAndPaginate(currentCategory, currentPage);
-  updatePagination();
-
   // 각 탭에 클릭 이벤트 추가
   categoryTabs.forEach((tab) => {
     tab.addEventListener("click", function (e) {
@@ -211,9 +326,12 @@ function initCategoryTabs() {
       // 정렬 타입 설정
       // 인기순만 다르게, 나머지는 모두 가나다순
       if (currentCategory === "인기순") {
-        currentSortType = "sales"; // 인기순만 순위 정렬
+        currentSortType = "sales";
+        console.log("정렬방식 : 인기순"); // 인기순만 순위 정렬
       } else {
-        currentSortType = "name"; // All, 아무튼, 점선면, 그림책, 기타 모두 가나다순
+        currentSortType = "name";
+        console.log("정렬방식 : 가나다순");
+        // All, 아무튼, 점선면, 그림책, 기타 모두 가나다순
       }
 
       // 필터링 및 페이지네이션 적용
@@ -226,16 +344,29 @@ function initCategoryTabs() {
   const prevBtn = document.querySelector(".pagination .prev");
   const nextBtn = document.querySelector(".pagination .next");
 
+  console.log("prevBtn:", prevBtn);
+  console.log("nextBtn:", nextBtn);
+
+  // < 이전 버튼 이벤트
   if (prevBtn) {
     prevBtn.addEventListener("click", () => {
       if (currentPage > 1) {
         currentPage--;
         filterAndPaginate(currentCategory, currentPage);
         updatePagination();
+
+        console.log("최상단으로 이동하기");
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      } else {
+        console.log("첫 페이지는 해당안함");
       }
     });
   }
 
+  // > 다음 버튼 이벤트
   if (nextBtn) {
     nextBtn.addEventListener("click", () => {
       const totalPages = getTotalPages(currentCategory);
@@ -243,6 +374,14 @@ function initCategoryTabs() {
         currentPage++;
         filterAndPaginate(currentCategory, currentPage);
         updatePagination();
+
+        console.log("최상단으로 이동하기");
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      } else {
+        console.log("최종 페이지는 해당안함");
       }
     });
   }
@@ -317,7 +456,7 @@ function filterAndPaginate(category, page) {
       filteredBooks.slice(0, 5).map((book) => book.getAttribute("data-title"))
     );
   }
-  // ★수정됨: DOM 재배치 - 정렬된 순서대로 DOM 요소를 다시 추가
+  // DOM 재배치 - 정렬된 순서대로 DOM 요소를 다시 추가
   const bookGrid = document.querySelector(".book-grid");
 
   // 현재 페이지에 해당하는 책만 표시 (15권씩)
@@ -329,18 +468,24 @@ function filterAndPaginate(category, page) {
     item.style.display = "none";
   });
 
-  filteredBooks.slice(startIndex, endIndex).forEach((item) => {
-    item.style.display = "block";
+  // 정렬된 순서대로 DOM에 다시 추가
+  filteredBooks.forEach((item, index) => {
+    // 현재 페이지에 표시할 책인지 확인
+    if (index >= startIndex && index < endIndex) {
+      // DOM 순서 변경을 위해 appendChild (이미 있는 요소는 이동됨)
+      bookGrid.appendChild(item);
+      item.style.display = "block";
 
-    // 애니메이션 효과
-    item.style.opacity = "0";
-    item.style.transform = "translateY(20px)";
+      // 애니메이션 효과
+      item.style.opacity = "0";
+      item.style.transform = "translateY(20px)";
 
-    setTimeout(() => {
-      item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-      item.style.opacity = "1";
-      item.style.transform = "translateY(0)";
-    }, 100);
+      setTimeout(() => {
+        item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        item.style.opacity = "1";
+        item.style.transform = "translateY(0)";
+      }, 100);
+    }
   });
 
   console.log(`${category} - 페이지 ${page}: ${startIndex}~${endIndex} 표시`);
@@ -407,6 +552,13 @@ function updatePagination() {
       currentPage = i;
       filterAndPaginate(currentCategory, currentPage);
       updatePagination();
+
+      // 페이지 변경시 최상단으로 올라가기
+      // 페이지 숫자를 누르면 페이지가 변환되면서 최상단으로 올라가는 것임
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
 
     pageNumbersContainer.appendChild(pageBtn);
@@ -421,62 +573,3 @@ function updatePagination() {
     nextBtn.disabled = currentPage === totalPages;
   }
 }
-
-/* ***************************************************************** */
-// main page 책 애니메이션 효과
-
-function animateBooks(row) {
-  const books = row.querySelectorAll(".book-item");
-
-  books.forEach((book, index) => {
-    book.style.opacity = "0";
-    book.style.transform = "translateY(20px)";
-
-    setTimeout(() => {
-      book.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-      book.style.opacity = "1";
-      book.style.transform = "translateY(0)";
-    }, index * 100);
-  });
-}
-
-/* ***************************************************************** */
-
-// 부드러운 스크롤 기능
-function smoothScrollTo(target) {
-  const element = document.querySelector(target);
-  if (element) {
-    element.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
-}
-
-/* ***************************************************************** */
-// 페이지 로드 완료 메시지
-
-window.addEventListener("load", function () {
-  console.log("위고 출판사 페이지 로드 완료");
-});
-
-// 대상: .logo img
-const scbody = document.body.classList;
-
-window.addEventListener("scroll", () => {
-  let scTop = window.scrollY;
-  console.log("scroll~~~!", scTop);
-
-  if (scTop > 300) {
-    scbody.add("on3");
-    scbody.remove("on1", "on2");
-  } else if (scTop > 200) {
-    scbody.add("on2");
-    scbody.remove("on1", "on3");
-  } else if (scTop > 100) {
-    scbody.add("on1");
-    scbody.remove("on2", "on3");
-  } else {
-    scbody.remove("on1", "on2", "on3");
-  }
-});
