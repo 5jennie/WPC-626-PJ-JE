@@ -296,22 +296,38 @@ function filterAndPaginate(category, page) {
       return rankA - rankB;
     });
   } else {
+    console.log("가나다순 정렬 실행");
     // 가나다순 정렬
     filteredBooks.sort((a, b) => {
       const titleA = a.getAttribute("data-title") || "";
       const titleB = b.getAttribute("data-title") || "";
+
+      const result = titleA.localeCompare(titleB, "ko", {
+        sensitivity: "base",
+        numeric: false,
+        ignorePunctuation: false,
+      });
+
       return titleA.localeCompare(titleB, "ko");
     });
+
+    // 정렬 결과 확인 (처음 5개만)
+    console.log(
+      "정렬 후 순서 (처음 5개):",
+      filteredBooks.slice(0, 5).map((book) => book.getAttribute("data-title"))
+    );
   }
+  // ★수정됨: DOM 재배치 - 정렬된 순서대로 DOM 요소를 다시 추가
+  const bookGrid = document.querySelector(".book-grid");
+
+  // 현재 페이지에 해당하는 책만 표시 (15권씩)
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
   // 모든 책 숨기기
   bookItems.forEach((item) => {
     item.style.display = "none";
   });
-
-  // 현재 페이지에 해당하는 책만 표시 (15권씩)
-  const startIndex = (page - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
 
   filteredBooks.slice(startIndex, endIndex).forEach((item) => {
     item.style.display = "block";
