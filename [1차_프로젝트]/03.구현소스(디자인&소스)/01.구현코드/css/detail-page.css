@@ -1,0 +1,166 @@
+@charset "utf-8";
+/* 위고 출판사 detail-page 페이지 CSS - detail-page.css */
+
+/* 기본 CSS 불러오기 */
+@import url(./header.css);
+@import url(./main.css);
+
+/* ***************************************************************** */
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* ***************************************************************** */
+
+/* detail-page 메인 콘텐츠 */
+
+/* 상품 상세 왼쪽 영역 */
+/* Main Content */
+.container {
+  padding: 100px 200px;
+}
+.book-detail-Info {
+  display: grid;
+  /* grid-template-columns: 350px 1fr; */
+  gap: 80px;
+  align-items: start;
+}
+
+/* 책표지 */
+.dp-book-cover {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dp-book-cover img {
+  /* width: 100%;
+  height: auto; */
+}
+
+/* 책 이름, 작가 이름 */
+.dp-book-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+/* 책 디테일 정보 */
+.dp-book-txt {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+  padding: 15px 0;
+
+  /* 책 표지와 책 정보 사이 선 */
+  border-top: 1px solid #e0e0e0;
+
+  /* 책 정보 와 버튼 사이 선 */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* 구매하기 버튼 */
+.buy-btn {
+  width: 100%;
+  padding: 18px 24px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* 구매버튼 호버시 색상변경 */
+.buy-btn:hover {
+  background: #137cf4;
+}
+
+/* ***************************************************************** */
+
+/* 상품 상세 오른쪽 영역 */
+
+/* Tab Menu */
+.tab-menu {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0;
+}
+
+.tab-menu button {
+  padding: 15px 30px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #999;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tab-menu button:hover {
+  color: #333;
+}
+
+.tab-menu button.active {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.tab-menu button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #1a1a1a;
+}
+
+/* book-detail */
+/* 상세이미지가 나오기 전 텍스트 정보 */
+.book-detail h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
+}
+
+.book-detail p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 25px;
+  text-align: justify;
+  word-break: keep-all;
+}
+
+/* 상세이미지 */
+/* Detail Image */
+.detail-image {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.detail-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
