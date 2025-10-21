@@ -106,7 +106,7 @@ body {
 .tab-menu {
   /* 탭 메뉴만 상단에 고정 */
   position: sticky;
-  top: 190px;
+  top: 89px;
 
   /* 크롤시 뒤 상세페이지 내용 가리기 */
   background: white;
