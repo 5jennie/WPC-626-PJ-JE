@@ -63,6 +63,10 @@ function renderBooks() {
       </div>
     `;
 
+    bookItem.addEventListener("click", () => {
+      window.location.href = `detail-page.html?id=${book.id}`;
+    });
+
     bookGrid.appendChild(bookItem);
   });
 
@@ -163,10 +167,16 @@ function initLanguageButtons() {
 
 /* ***************************************************************** */
 // DOMContentLoaded
+
 document.addEventListener("DOMContentLoaded", function () {
   const swiperElement = document.querySelector(".main-swiper");
 
   if (swiperElement) {
+    // 드래그 감지를 위한 변수
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+
     const swiper = new Swiper(".main-swiper", {
       loop: true,
       speed: 800,
@@ -187,6 +197,56 @@ document.addEventListener("DOMContentLoaded", function () {
       watchOverflow: false,
       effect: "slide",
     });
+
+    // 모든 슬라이드 링크에 드래그 감지 추가
+    const slideLinks = swiperElement.querySelectorAll(".slide-link");
+
+    slideLinks.forEach((link) => {
+      // 터치/마우스 시작
+      link.addEventListener("mousedown", (e) => {
+        isDragging = false;
+        startX = e.clientX;
+        startY = e.clientY;
+      });
+
+      link.addEventListener("touchstart", (e) => {
+        isDragging = false;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      });
+
+      // 터치/마우스 이동
+      link.addEventListener("mousemove", (e) => {
+        if (startX !== 0) {
+          const diffX = Math.abs(e.clientX - startX);
+          const diffY = Math.abs(e.clientY - startY);
+          if (diffX > 5 || diffY > 5) {
+            isDragging = true;
+          }
+        }
+      });
+
+      link.addEventListener("touchmove", (e) => {
+        if (startX !== 0) {
+          const diffX = Math.abs(e.touches[0].clientX - startX);
+          const diffY = Math.abs(e.touches[0].clientY - startY);
+          if (diffX > 5 || diffY > 5) {
+            isDragging = true;
+          }
+        }
+      });
+
+      // 클릭 시 드래그였으면 링크 막기
+      link.addEventListener("click", (e) => {
+        if (isDragging) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        isDragging = false;
+        startX = 0;
+        startY = 0;
+      });
+    });
   }
 
   // 메인 페이지 탭 기능 초기화
@@ -196,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const bookGrid = document.querySelector(".book-grid");
   if (bookGrid) {
     console.log("All Books 페이지 - 데이터 로드 시작");
-    loadBooksData(); // 책 데이터 로드 → renderBooks() → initCategoryTabs() 자동 실행
+    loadBooksData();
   }
 
   console.log("위고 출판사 페이지 로드 완료");

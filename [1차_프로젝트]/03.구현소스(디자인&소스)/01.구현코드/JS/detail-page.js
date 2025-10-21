@@ -1,5 +1,102 @@
-// detail-page.js
+// 위고 출판사 detail-page JS - detail-page.js
 
+/* ***************************************************************** */
+// 1:1 문의 페이지네이션 /* ★수정됨: qna- 클래스명으로 통일 */
+
+let currentQnaPage = 1;
+const qnaPerPage = 5; // 페이지당 5개씩 표시
+
+function initQnaPagination() {
+  const qnaItems = document.querySelectorAll(".qna-item");
+  const prevBtn = document.querySelector('[data-panel="qna"] .pagination .prev');
+  const nextBtn = document.querySelector('[data-panel="qna"] .pagination .next');
+  const pageNumbersContainer = document.querySelector('[data-panel="qna"] .page-numbers');
+
+  if (!qnaItems.length || !prevBtn || !nextBtn || !pageNumbersContainer) {
+    console.log("페이지네이션 요소를 찾을 수 없음");
+    return;
+  }
+
+  const totalPages = Math.ceil(qnaItems.length / qnaPerPage);
+
+  console.log("전체 문의:", qnaItems.length);
+  console.log("전체 페이지:", totalPages);
+
+  // 5개 이하면 페이지네이션 숨김
+  if (totalPages <= 1) {
+    document.querySelector('[data-panel="qna"] .pagination').style.display = "none";
+    return;
+  } else {
+    document.querySelector('[data-panel="qna"] .pagination').style.display = "flex";
+  }
+
+  // 페이지 번호 버튼 생성
+  function updatePagination() {
+    pageNumbersContainer.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageBtn = document.createElement("button");
+      pageBtn.className = "page-num";
+      pageBtn.textContent = i;
+
+      if (i === currentQnaPage) {
+        pageBtn.classList.add("active");
+      }
+
+      pageBtn.addEventListener("click", () => {
+        currentQnaPage = i;
+        showQnaPage(currentQnaPage);
+        updatePagination();
+      });
+
+      pageNumbersContainer.appendChild(pageBtn);
+    }
+
+    // 이전/다음 버튼 활성화/비활성화
+    prevBtn.disabled = currentQnaPage === 1;
+    nextBtn.disabled = currentQnaPage === totalPages;
+  }
+
+  // 해당 페이지의 문의만 표시
+  function showQnaPage(page) {
+    const startIndex = (page - 1) * qnaPerPage;
+    const endIndex = startIndex + qnaPerPage;
+
+    qnaItems.forEach((item, index) => {
+      if (index >= startIndex && index < endIndex) {
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+
+    console.log(`페이지 ${page}: ${startIndex}~${endIndex - 1} 표시`);
+  }
+
+  // 이전 버튼 클릭
+  prevBtn.addEventListener("click", () => {
+    if (currentQnaPage > 1) {
+      currentQnaPage--;
+      showQnaPage(currentQnaPage);
+      updatePagination();
+    }
+  });
+
+  // 다음 버튼 클릭
+  nextBtn.addEventListener("click", () => {
+    if (currentQnaPage < totalPages) {
+      currentQnaPage++;
+      showQnaPage(currentQnaPage);
+      updatePagination();
+    }
+  });
+
+  // 초기 렌더링
+  updatePagination();
+  showQnaPage(currentQnaPage);
+}
+
+/* ***************************************************************** */
 // 컴포넌트 로드 함수
 async function loadComponent(selector, file) {
   try {
@@ -20,6 +117,7 @@ async function loadComponent(selector, file) {
 loadComponent("#header", "./inc/hero.html");
 loadComponent("#footer", "./inc/footer.html");
 
+/* ***************************************************************** */
 // 언어 버튼 기능
 function initLanguageButtons() {
   const krBtn = document.querySelector(".lang-kr");
@@ -40,7 +138,8 @@ function initLanguageButtons() {
   }
 }
 
-// 스크롤 효과
+/* ***************************************************************** */
+// 스크롤 효과 - 헤더 크기 조절
 const scbody = document.body.classList;
 
 window.addEventListener("scroll", () => {
@@ -60,16 +159,80 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// 탭 메뉴 기능 (상세페이지용)
-document.addEventListener("DOMContentLoaded", function () {
-  const tabButtons = document.querySelectorAll(".tab-menu button");
-  
-  tabButtons.forEach(button => {
+/* ***************************************************************** */
+// 탭 메뉴 기능 /* ★수정됨: 탭 전환 기능 추가 */
+
+function initTabMenu() {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabPanels = document.querySelectorAll(".tab-panel");
+
+  console.log("탭 버튼 개수:", tabButtons.length);
+  console.log("탭 패널 개수:", tabPanels.length);
+
+  // 각 탭 버튼에 클릭 이벤트 추가
+  tabButtons.forEach((button) => {
     button.addEventListener("click", function () {
-      tabButtons.forEach(btn => btn.classList.remove("active"));
+      // 클릭한 버튼의 data-tab 값 가져오기
+      const targetTab = this.getAttribute("data-tab");
+
+      console.log("클릭한 탭:", targetTab);
+
+      // 모든 탭 버튼에서 active 제거
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+      // 클릭한 버튼에 active 추가
       this.classList.add("active");
+
+      // 모든 탭 패널 숨기기
+      tabPanels.forEach((panel) => {
+        panel.classList.remove("active");
+      });
+
+      // 해당하는 탭 패널만 보이기
+      const targetPanel = document.querySelector(
+        `[data-panel="${targetTab}"]`
+      );
+
+      if (targetPanel) {
+        targetPanel.classList.add("active");
+        console.log("활성화된 패널:", targetTab);
+      } else {
+        console.error("패널을 찾을 수 없음:", targetTab);
+      }
     });
   });
+}
+
+/* ***************************************************************** */
+// DOMContentLoaded - 페이지 로드 완료 후 실행
+
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("상세페이지 로드 시작");
+
+  // 탭 메뉴 초기화
+  initTabMenu();
+
+  // 1:1 문의 페이지네이션 초기화 /* ★수정됨: 페이지네이션 초기화 추가 */
+  initQnaPagination();
 
   console.log("상세페이지 로드 완료");
+});
+
+/* ***************************************************************** */
+// 페이지 로드 시 최상단으로 이동
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
+// 히스토리 사용 시에도 최상단으로 이동
+if (history.scrollRestoration) {
+  history.scrollRestoration = "manual";
+}
+
+// 페이지 로드 즉시 최상단으로
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    window.scrollTo(0, 0);
+  }, 0);
 });

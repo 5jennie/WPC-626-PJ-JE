@@ -31,6 +31,14 @@ body {
   border-bottom: 2px solid;
 }
 
+/* 링크 스타일 초기화 */
+.main-bn,
+.slide-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 /* Swiper 컨테이너 */
 .main-swiper {
   width: 100%;

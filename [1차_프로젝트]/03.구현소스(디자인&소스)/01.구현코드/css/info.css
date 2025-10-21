@@ -40,8 +40,9 @@ body {
   color: #000000;
 }
 .info-text h3 {
-font-size: 25px;
+  font-size: 25px;
 }
 .info-text p {
-font-size: 16px;
+  font-size: 16px;
+  font-family: none;
 }

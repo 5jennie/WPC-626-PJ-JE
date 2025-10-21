@@ -4,6 +4,7 @@
 /* 기본 CSS 불러오기 */
 @import url(./core.css);
 @import url(./reset.css);
+
 /* 컴포넌트 CSS 불러오기 */
 @import url(./hero.css);
 @import url(./footer.css);
@@ -108,7 +109,7 @@ body {
   position: sticky;
   top: 89px;
 
-  /* 크롤시 뒤 상세페이지 내용 가리기 */
+  /* 스크롤시 뒤 상세페이지 내용 가리기 */
   background: white;
   z-index: 10;
 
@@ -150,6 +151,18 @@ body {
   background: #1a1a1a;
 }
 
+/* ***************************************************************** */
+/* 탭 콘텐츠 영역 */
+
+/* 탭 패널 숨김/노출 설정 */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
 /* book-detail */
 /* 상세이미지가 나오기 전 텍스트 정보 */
 .book-detail h2 {
@@ -160,9 +173,16 @@ body {
   margin-bottom: 30px;
   letter-spacing: -0.5px;
 }
+.book-detail h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 20px;
+}
 
 .book-detail p {
   font-size: 16px;
+  font-family: none;
   line-height: 1.9;
   color: #555;
   margin-bottom: 25px;
@@ -180,4 +200,113 @@ body {
 .detail-image img {
   width: 100%;
   height: auto;
+}
+
+/* 목차 */
+/* contents */
+.book-detail ul {
+  color: #666;
+}
+
+.book-detail ul li {
+  font-size: 16px;
+  font-family: none;
+}
+
+/* ***************************************************************** */
+/* 1:1 문의 */
+/* qna */
+
+/* 1:1 문의 헤더 영역 */
+.qna-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.qna-btn {
+  padding: 12px 30px;
+  background: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.qna-btn:hover {
+  background: #137cf4;
+}
+
+/* 문의 목록 */
+.qna-list {
+  margin-bottom: 40px;
+}
+
+.qna-item {
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.qna-item:hover {
+  border-color: #000000;
+}
+
+.qna-header {
+  margin-bottom: 10px;
+}
+
+.qna-header strong {
+  font-size: 14px;
+  color: #333;
+}
+
+.qna-item p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  text-align: left;
+}
+
+/* 페이지네이션 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 10px;
+}
+
+.pagination button {
+  min-width: 35px;
+  height: 35px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: #000;
+  color: #000;
+}
+
+.pagination button.active {
+  background: #000;
+  color: white;
+  border-color: #000;
+}
+
+.pagination button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
