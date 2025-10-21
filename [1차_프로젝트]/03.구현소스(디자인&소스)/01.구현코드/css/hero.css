@@ -20,8 +20,6 @@
   background: white;
   /* 헤더 높이 고정 */
   /* height: 250px;  */
-
-  /* sticky 기능때문에 추가 */
   position: fixed;
   width: 100%;
   top: 0;
