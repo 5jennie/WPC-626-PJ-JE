@@ -8,9 +8,15 @@ const qnaPerPage = 5; // 페이지당 5개씩 표시
 
 function initQnaPagination() {
   const qnaItems = document.querySelectorAll(".qna-item");
-  const prevBtn = document.querySelector('[data-panel="qna"] .pagination .prev');
-  const nextBtn = document.querySelector('[data-panel="qna"] .pagination .next');
-  const pageNumbersContainer = document.querySelector('[data-panel="qna"] .page-numbers');
+  const prevBtn = document.querySelector(
+    '[data-panel="qna"] .pagination .prev'
+  );
+  const nextBtn = document.querySelector(
+    '[data-panel="qna"] .pagination .next'
+  );
+  const pageNumbersContainer = document.querySelector(
+    '[data-panel="qna"] .page-numbers'
+  );
 
   if (!qnaItems.length || !prevBtn || !nextBtn || !pageNumbersContainer) {
     console.log("페이지네이션 요소를 찾을 수 없음");
@@ -24,10 +30,12 @@ function initQnaPagination() {
 
   // 5개 이하면 페이지네이션 숨김
   if (totalPages <= 1) {
-    document.querySelector('[data-panel="qna"] .pagination').style.display = "none";
+    document.querySelector('[data-panel="qna"] .pagination').style.display =
+      "none";
     return;
   } else {
-    document.querySelector('[data-panel="qna"] .pagination').style.display = "flex";
+    document.querySelector('[data-panel="qna"] .pagination').style.display =
+      "flex";
   }
 
   // 페이지 번호 버튼 생성
@@ -160,7 +168,7 @@ window.addEventListener("scroll", () => {
 });
 
 /* ***************************************************************** */
-// 탭 메뉴 기능 /* ★수정됨: 탭 전환 기능 추가 */
+// 탭 메뉴 기능 */
 
 function initTabMenu() {
   const tabButtons = document.querySelectorAll(".tab-btn");
@@ -189,9 +197,7 @@ function initTabMenu() {
       });
 
       // 해당하는 탭 패널만 보이기
-      const targetPanel = document.querySelector(
-        `[data-panel="${targetTab}"]`
-      );
+      const targetPanel = document.querySelector(`[data-panel="${targetTab}"]`);
 
       if (targetPanel) {
         targetPanel.classList.add("active");
@@ -208,6 +214,9 @@ function initTabMenu() {
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("상세페이지 로드 시작");
+
+  // 책 데이터 로드 추가
+  loadBookDetail();
 
   // 탭 메뉴 초기화
   initTabMenu();
@@ -236,3 +245,129 @@ window.addEventListener("load", function () {
     window.scrollTo(0, 0);
   }, 0);
 });
+
+// 위고 출판사 detail-page JS - detail-page.js
+
+/* ***************************************************************** */
+// URL에서 책 ID 가져오기 및 데이터 로드 */
+
+const urlParams = new URLSearchParams(window.location.search);
+const bookId = urlParams.get("id");
+
+console.log("URL에서 가져온 책 ID:", bookId);
+
+// 책 데이터 로드
+async function loadBookDetail() {
+  if (!bookId) {
+    console.error("책 ID가 없습니다!");
+    return;
+  }
+
+  try {
+    const response = await fetch("./data/books.json");
+    const books = await response.json();
+    const book = books.find((b) => b.id == bookId);
+
+    if (!book) {
+      console.error("해당 ID의 책을 찾을 수 없습니다!");
+      return;
+    }
+
+    console.log("로드된 책 정보:", book);
+    displayBookDetail(book);
+  } catch (error) {
+    console.error("책 데이터 로드 실패:", error);
+  }
+}
+
+// 책 정보를 페이지에 표시
+function displayBookDetail(book) {
+  // 책 표지
+  const coverImg = document.querySelector(".dp-book-cover img");
+  if (coverImg && book.coverImage) {
+    coverImg.src = book.coverImage;
+  }
+
+  // 책 제목
+  const bookTitle = document.querySelector(".book-title");
+  if (bookTitle) {
+    bookTitle.textContent = `[${book.title}] ${book.author}`;
+  }
+
+  // 책 정보
+  const bookTxt = document.querySelector(".book-txt");
+  if (bookTxt) {
+    bookTxt.innerHTML = `
+      ${book.isbn}<br />
+      ${book.author} 저 | ${book.publisher} | ${book.publishDate}<br />
+      ${book.pages} | ${book.weight} | ${book.size}
+    `;
+  }
+
+  // 책소개
+  const introTitle = document.querySelector('[data-panel="intro"] h2');
+  if (introTitle && book.intro) {
+    introTitle.textContent = book.intro;
+  }
+
+  // 기존 p 태그 모두 제거 후 새로 생성
+  const introPanel = document.querySelector('[data-panel="intro"]');
+  if (introPanel && book.description) {
+    // 기존 p 태그 모두 제거
+    const oldParagraphs = introPanel.querySelectorAll("p");
+    oldParagraphs.forEach((p) => p.remove());
+
+    // 새로운 p 태그 생성
+    book.description.forEach((text) => {
+      const p = document.createElement("p");
+      p.textContent = text;
+
+      // 이미지 위에 P태그 먼저 삽입
+      introPanel.querySelector(".detail-image").before(p);
+    });
+
+    // 상세 이미지
+    const detailImg = document.querySelector(".detail-image img");
+    if (detailImg && book.detailImage) {
+      detailImg.src = book.detailImage;
+    }
+  }
+
+  // 목차
+  const contentsList = document.querySelector('[data-panel="contents"] ul');
+  if (contentsList && book.contents) {
+    contentsList.innerHTML = "";
+    book.contents.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      contentsList.appendChild(li);
+    });
+  }
+
+  // 저자 소개
+  if (book.authorInfo) {
+    const authorTitle = document.querySelector('[data-panel="author"] h2');
+    const authorRole = document.querySelector('[data-panel="author"] h3');
+    const authorBio = document.querySelectorAll('[data-panel="author"] p');
+
+    if (authorTitle) authorTitle.textContent = book.authorInfo.name;
+    if (authorRole) authorRole.textContent = book.authorInfo.role;
+
+    // 기존 p 태그 모두 제거 후 새로 생성
+    const authorPanel = document.querySelector('[data-panel="author"]');
+    if (authorPanel && book.authorInfo.bio) {
+      // 기존 p 태그 모두 제거
+      const oldBioParagraphs = authorPanel.querySelectorAll("p");
+      oldBioParagraphs.forEach((p) => p.remove());
+
+      // 새로운 p 태그 생성
+      book.authorInfo.bio.forEach((text) => {
+        const p = document.createElement("p");
+        p.textContent = text;
+        authorPanel.appendChild(p);
+      });
+    }
+  }
+}
+
+/* ***************************************************************** */

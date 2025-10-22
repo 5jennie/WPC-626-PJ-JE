@@ -12,7 +12,7 @@
   <body>
     <!-- Header 불러올 위치 -->
     <div id="header"></div>
-    
+
     <!-- Hero Section 시작 부분 추가 -->
     <div class="hero-section">
       <!-- ***************************************************************** -->
@@ -20,8 +20,8 @@
       <section class="main">
         <div class="swiper main-swiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide main-bn">
-              <a href="./detail-page.html?id=A-001" class="slide-link">
+            <div class="swiper-slide main-bn" data-book="아무튼, 레코드">
+              <a href="detail-page.html?id=6" class="banner-link">
                 <img
                   src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/1.png"
                   alt="Banner1"
@@ -32,8 +32,8 @@
               </a>
             </div>
 
-            <div class="swiper-slide main-bn">
-              <a href="./detail.html?id=A-002" class="slide-link">
+            <div class="swiper-slide main-bn" data-book="아무튼, 명언">
+              <a href="detail-page.html?id=5" class="banner-link">
                 <img
                   src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/2.png"
                   alt="Banner2"
@@ -44,8 +44,8 @@
               </a>
             </div>
 
-            <div class="swiper-slide main-bn">
-              <a href="./detail.html?id=A-006" class="slide-link">
+            <div class="swiper-slide main-bn" data-book="아무튼, 정리">
+              <a href="detail-page.html?id=19" class="banner-link">
                 <img
                   src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/3.png"
                   alt="Banner3"
@@ -56,8 +56,8 @@
               </a>
             </div>
 
-            <div class="swiper-slide main-bn">
-              <a href="./detail.html?id=F-006" class="slide-link">
+            <div class="swiper-slide main-bn" data-book="발견의 여행">
+              <a href="detail-page.html?id=29" class="banner-link">
                 <img
                   src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/4.png"
                   alt="Banner4"
@@ -68,8 +68,8 @@
               </a>
             </div>
 
-            <div class="swiper-slide main-bn">
-              <a href="./detail.html?id=F-005" class="slide-link">
+            <div class="swiper-slide main-bn" data-book="짐승과 인간">
+              <a href="detail-page.html?id=12" class="banner-link">
                 <img
                   src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/5.png"
                   alt="Banner5"
@@ -80,8 +80,8 @@
               </a>
             </div>
 
-            <div class="swiper-slide main-bn">
-              <a href="./detail.html?id=F-002" class="slide-link">
+            <div class="swiper-slide main-bn" data-book="단어 옆에 서기">
+              <a href="detail-page.html?id=7" class="banner-link">
                 <img
                   src="../../03.구현소스(디자인&소스)/02.구현디자인/03.메인배너용/6.png"
                   alt="Banner6"
@@ -102,7 +102,6 @@
 
     <!-- ***************************************************************** -->
     <!-- 2-1. Navigation Tabs -->
-    <!-- 배너 바로 밑에 있는 탭 버튼 3종 -->
     <nav class="nav-tabs">
       <a href="javascript:void(0)" class="nav-tab">New Books</a>
       <a href="javascript:void(0)" class="nav-tab">Best</a>
@@ -114,8 +113,8 @@
     <main class="book-section">
       <!-- New Books 섹션 -->
       <div class="book-row" data-category="new">
-        <!-- 첫번째 줄 5권 -->
-        <a href="./detail.html?id=A-001" class="book-item">
+        <!-- ★수정됨: a 태그 제거, data-book 추가 -->
+        <div class="book-item" data-book="아무튼, 레코드">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
             alt="Book Cover"
@@ -125,9 +124,9 @@
             <h4>아무튼, 레코드</h4>
             <p>성진환</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=F-001" class="book-item">
+        <div class="book-item" data-book="종이 묵주">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-001/composite.png"
             alt="Book Cover"
@@ -137,9 +136,9 @@
             <h4>종이묵주</h4>
             <p>박문영</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=F-004" class="book-item">
+        <div class="book-item" data-book="흰 고래의 흼에 대하여">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-004/composite.png"
             alt="Book Cover"
@@ -149,9 +148,9 @@
             <h4>흰 고래의 흼에 대하여</h4>
             <p>홍한별</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=F-002" class="book-item">
+        <div class="book-item" data-book="단어 옆에 서기">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-002/composite.png"
             alt="Book Cover"
@@ -161,9 +160,9 @@
             <h4>단어 옆에 서기</h4>
             <p>조모란</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=F-003" class="book-item">
+        <div class="book-item" data-book="나의 어린 내담자">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-003/composite.png"
             alt="Book Cover"
@@ -173,12 +172,12 @@
             <h4>나의 어린 내담자</h4>
             <p>토리 헤이든</p>
           </div>
-        </a>
+        </div>
       </div>
 
       <!-- 두번째 줄 5권 -->
       <div class="book-row" data-category="new">
-        <a href="./detail.html?id=G-001" class="book-item">
+        <div class="book-item" data-book="저녁이면 눈 냄새가 난다">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/그림책/G-001/composite.png"
             alt="Book Cover"
@@ -194,9 +193,9 @@
               사라 룬드베리
             </p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=A-002" class="book-item">
+        <div class="book-item" data-book="아무튼, 명언">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-002/composite.png"
             alt="Book Cover"
@@ -206,9 +205,9 @@
             <h4>아무튼, 명언</h4>
             <p>하지현</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=F-005" class="book-item">
+        <div class="book-item" data-book="짐승과 인간">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-005/composite.png"
             alt="Book Cover"
@@ -218,9 +217,9 @@
             <h4>짐승과 인간</h4>
             <p>메리미즐리</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=J-001" class="book-item">
+        <div class="book-item" data-book="우리는 언제나 타지에 있다">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/점선면,시리즈/J-001/composite.png"
             alt="Book Cover"
@@ -233,9 +232,9 @@
             </h4>
             <p>고예나</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=A-003" class="book-item">
+        <div class="book-item" data-book="아무튼, 사투리">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-003/composite.png"
             alt="Book Cover"
@@ -245,13 +244,13 @@
             <h4>아무튼, 사투리</h4>
             <p>다드래기</p>
           </div>
-        </a>
+        </div>
       </div>
 
       <!-- ***************************************************************** -->
-      <!-- Best Books 섹션 (클릭시 노출) -->
+      <!-- Best Books 섹션 -->
       <div class="book-row" data-category="best" style="display: none">
-        <a href="./detail-page.html?id=A-001" class="book-item">
+        <div class="book-item" data-book="아무튼, 레코드">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-001/composite.png"
             alt="Book Cover"
@@ -261,9 +260,9 @@
             <h4>아무튼, 레코드</h4>
             <p>성진환</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=F-004" class="book-item">
+        <div class="book-item" data-book="흰 고래의 흼에 대하여">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-004/composite.png"
             alt="Book Cover"
@@ -273,9 +272,9 @@
             <h4>흰 고래의 흼에 대하여</h4>
             <p>홍한별</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=F-008" class="book-item">
+        <div class="book-item" data-book="슬픈 세상의 기쁜 말">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-008/composite.png"
             alt="Book Cover"
@@ -285,9 +284,9 @@
             <h4>슬픈 세상의 기쁜 말</h4>
             <p>정혜윤</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail-page.html?id=A-005" class="book-item">
+        <div class="book-item" data-book="아무튼 디지몬">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-005/composite.png"
             alt="Book Cover"
@@ -297,9 +296,9 @@
             <h4>아무튼, 디지몬</h4>
             <p>천선란</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=F-001" class="book-item">
+        <div class="book-item" data-book="종이 묵주">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-001/composite.png"
             alt="Book Cover"
@@ -309,12 +308,12 @@
             <h4>종이 묵주</h4>
             <p>박문영</p>
           </div>
-        </a>
+        </div>
       </div>
 
       <!-- 두번째 줄 5권 -->
       <div class="book-row" data-category="best" style="display: none">
-        <a href="./detail.html?id=A-002" class="book-item">
+        <div class="book-item" data-book="아무튼, 명언">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-002/composite.png"
             alt="Book Cover"
@@ -324,9 +323,9 @@
             <h4>아무튼, 명언</h4>
             <p>하지현</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=A-004" class="book-item">
+        <div class="book-item" data-book="아무튼, SF게임">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-004/composite.png"
             alt="Book Cover"
@@ -336,9 +335,9 @@
             <h4>아무튼, SF</h4>
             <p>김초엽</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=F-002" class="book-item">
+        <div class="book-item" data-book="단어 옆에 서기">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/기타/F-002/composite.png"
             alt="Book Cover"
@@ -348,9 +347,9 @@
             <h4>단어 옆에 서기</h4>
             <p>조모란</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=A-007" class="book-item">
+        <div class="book-item" data-book="아무튼, 데모">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/아무튼,시리즈/A-007/composite.png"
             alt="Book Cover"
@@ -360,9 +359,9 @@
             <h4>아무튼, 데모</h4>
             <p>정보라</p>
           </div>
-        </a>
+        </div>
 
-        <a href="./detail.html?id=G-001" class="book-item">
+        <div class="book-item" data-book="저녁이면 눈 냄새가 난다">
           <img
             src="../../03.구현소스(디자인&소스)/02.구현디자인/02.도서/그림책/G-001/composite.png"
             alt="Book Cover"
@@ -378,7 +377,7 @@
               사라 룬드베리
             </p>
           </div>
-        </a>
+        </div>
       </div>
     </main>
 
