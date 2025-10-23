@@ -66,6 +66,19 @@ body {
   overflow: hidden;
   box-sizing: border-box;
 }
+/* Swiper 슬라이드 개수 조정 */
+/* 데스크톱: 3개 */
+.swiper-slide.main-bn { width: calc(100% / 3); }
+
+/* 태블릿: 2개 */
+@media (max-width: 940px) {
+  .swiper-slide.main-bn { width: calc(100% / 2) !important; }
+}
+
+/* 모바일: 1개 */
+@media (max-width: 768px) {
+  .swiper-slide.main-bn { width: 100% !important; }
+}
 
 /* 배너의 이미지 */
 .main-bn img {
@@ -302,4 +315,21 @@ body {
 /* 도서명 호버 효과 */
 .book-item:hover .book-title {
   opacity: 1;
+}
+
+/* 책 그리드 개수 조정 */
+/* 데스크톱: 5개 (기본 flex) */
+
+/* 태블릿: 3개 */
+@media (max-width: 940px) {
+  .book-item { 
+    flex: 0 0 calc((100% - 50px) / 3);
+  }
+}
+
+/* 모바일: 2개 */
+@media (max-width: 768px) {
+  .book-item { 
+    flex: 0 0 calc((100% - 15px) / 2);
+  }
 }

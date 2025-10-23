@@ -143,6 +143,25 @@ document.addEventListener("DOMContentLoaded", function () {
       spaceBetween: 0,
       watchOverflow: false,
       effect: "slide",
+
+ // 반응형 브레이크포인트
+      breakpoints: {
+        // 모바일 (768px 이하)
+        0: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+        },
+        // 태블릿 (768px ~ 940px)
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 1,
+        },
+        // 데스크톱 (940px 이상)
+        940: {
+          slidesPerView: 3,
+          slidesPerGroup: 1,
+        }
+      }
     });
 
     // 모든 슬라이드 링크에 드래그 감지 추가
@@ -314,6 +333,7 @@ function addMainPageBookLinks() {
       fetch("./data/books.json")
         .then((res) => res.json())
         .then((books) => {
+          
           // 정규화된 제목으로 비교
           const normalizedBookTitle = normalizeTitle(bookTitle);
           const book = books.find((b) => normalizeTitle(b.title) === normalizedBookTitle);
