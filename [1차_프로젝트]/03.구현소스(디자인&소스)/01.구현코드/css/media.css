@@ -81,7 +81,7 @@
 
   /* 헤더 컨테이너 패딩 조정 */
   .header-container {
-    padding: 20px 0 0 0; /* 기존 30px */
+    /* padding: 20px 0 0 0; */ /* 기존 30px */
   }
 
   /* 왼쪽 메뉴 패딩 */
@@ -221,7 +221,7 @@
   }
 
   /* 책 아이템 - 3개씩 배치 */
-  .book-item {
+  .main-body .book-item {
     flex: 0 0 calc((100% - 50px) / 3); /* 추가됨: 3개씩 */
     max-width: calc((100% - 50px) / 3);
   }
@@ -245,11 +245,55 @@
 /* ***************************************************************** */
 
 @media (max-width: 768px) {
+  body {
+    padding-top: 70px !important;
+  }
+  .logo img {
+    width: 40% !important;
+    /* margin-top: -30px !important; */
+  }
+
+  .book-detail-Info {
+    display: block;
+  }
+  .dp-book-cover {
+    position: static;
+    margin-top: 50px;
+  }
+
+  .right-section {
+    margin-top: 50px;
+  }
+
+  .tab-menu {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .category-tabs .wrap2 {
+  display: flex;
+  gap: 9vw;
+  overflow-x: auto;
+}
+ 
+.category-tabs .wrap1{
+  display: none;
+}
+
+
   /* ===== 공통 - 헤더 (Header) ===== */
 
   /* 헤더 컨테이너 패딩 조정 */
   .header-container {
-    padding: 15px 0 0 0; /* 기존 20px */
+    /* padding: 15px 0 0 0; */ /* 기존 20px */
+  }
+  .header-container nav {
+    flex: 1;
   }
 
   /* 왼쪽 메뉴 패딩 */
@@ -260,6 +304,7 @@
   /* 오른쪽 메뉴 패딩 */
   .nav-right {
     padding-right: 20px; /* 기존 30px */
+    justify-content: flex-end;
   }
 
   /* 왼쪽 메뉴 폰트 크기 */
