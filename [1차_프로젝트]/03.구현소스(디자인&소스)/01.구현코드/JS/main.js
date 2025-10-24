@@ -121,30 +121,44 @@ document.addEventListener("DOMContentLoaded", function () {
   if (swiperElement) {
     // 드래그 감지를 위한 변수
     let isDragging = false;
+    // 현재 드래그 중인지 여부
     let startX = 0;
     let startY = 0;
 
     const swiper = new Swiper(".main-swiper", {
+      // 슬라이드 무한반복
       loop: true,
+      // 0.8초 후에 슬라이드 전환
       speed: 800,
+      // 자정 재생 설정
       autoplay: {
+        // 5초간 이미지 노출
         delay: 5000,
+        // 터치/마우스 해도 자동재생 유지
         disableOnInteraction: false,
       },
+      // 이전/다음 버튼 설정
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
+      // 키보드 조작설정
       keyboard: {
+        // 키보드 방향키로 슬라이드 이동 가능
         enabled: true,
       },
+      // 한 화면에 3개 노출
       slidesPerView: 3,
+      // 한 화면에 1장씩 옆으로 넘어감
       slidesPerGroup: 1,
+      // 슬라이드 간 간격 (픽셀 0)
       spaceBetween: 0,
+      // 슬라이드가 부족해도 네비게이션 버튼 표시
       watchOverflow: false,
+      // 슬라이드 전환 효과
       effect: "slide",
 
- // 반응형 브레이크포인트
+      // 반응형 브레이크포인트
       breakpoints: {
         // 모바일 (768px 이하)
         0: {
@@ -160,8 +174,8 @@ document.addEventListener("DOMContentLoaded", function () {
         940: {
           slidesPerView: 3,
           slidesPerGroup: 1,
-        }
-      }
+        },
+      },
     });
 
     // 모든 슬라이드 링크에 드래그 감지 추가
@@ -170,44 +184,57 @@ document.addEventListener("DOMContentLoaded", function () {
     slideLinks.forEach((link) => {
       // 터치/마우스 시작
       link.addEventListener("mousedown", (e) => {
+        // 드래그 상태 초기화
         isDragging = false;
         startX = e.clientX;
         startY = e.clientY;
       });
 
+      // === 터치 드래그 시작 감지 (모바일) ===
       link.addEventListener("touchstart", (e) => {
+        // 드래그 상태 초기화
         isDragging = false;
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
       });
 
-      // 터치/마우스 이동
+      // === 마우스 이동 중 드래그 여부 판단 (PC) ===
       link.addEventListener("mousemove", (e) => {
+        // 마우스가 눌린 상태인지 확인
         if (startX !== 0) {
           const diffX = Math.abs(e.clientX - startX);
           const diffY = Math.abs(e.clientY - startY);
+          // 5px 이상 움직였으면 드래그로 판단
           if (diffX > 5 || diffY > 5) {
             isDragging = true;
           }
         }
       });
 
+      // === 터치 이동 중 드래그 여부 판단 (모바일) ===
       link.addEventListener("touchmove", (e) => {
+        // 터치가 시작된 상태인지 확인
         if (startX !== 0) {
           const diffX = Math.abs(e.touches[0].clientX - startX);
           const diffY = Math.abs(e.touches[0].clientY - startY);
+          // 5px 이상 움직였으면 드래그로 판단
           if (diffX > 5 || diffY > 5) {
             isDragging = true;
           }
         }
       });
 
-      // 클릭 시 드래그였으면 링크 막기
+      // === 클릭 이벤트 처리 ===
       link.addEventListener("click", (e) => {
+        // 드래그 중이었다면 링크 이동 차단
         if (isDragging) {
+          // 기본 링크 동작 취소
           e.preventDefault();
+          // 이벤트 전파 중단
           e.stopPropagation();
         }
+        // 상태 초기화
+        // 드래그 상태 리셋
         isDragging = false;
         startX = 0;
         startY = 0;
@@ -333,11 +360,12 @@ function addMainPageBookLinks() {
       fetch("./data/books.json")
         .then((res) => res.json())
         .then((books) => {
-          
           // 정규화된 제목으로 비교
           const normalizedBookTitle = normalizeTitle(bookTitle);
-          const book = books.find((b) => normalizeTitle(b.title) === normalizedBookTitle);
-          
+          const book = books.find(
+            (b) => normalizeTitle(b.title) === normalizedBookTitle
+          );
+
           if (book) {
             console.log(`✅ 책 찾음: "${bookTitle}" → ID: ${book.id}`);
             window.location.href = `detail-page.html?id=${book.id}`;
@@ -577,7 +605,6 @@ function filterAndPaginate(category, page) {
       // 하나만 순위가 있으면 순위 있는 게 앞으로
       return rankA - rankB;
     });
-    
   } else {
     console.log("가나다순 정렬 실행");
     // ★수정됨: 가나다순 정렬
