@@ -27,6 +27,7 @@ body {
 /* 카테고리 전체 설정 */
 .category-tabs {
   margin-bottom: 60px;
+   flex-wrap: wrap;
 }
 .category-tabs > * {
   display: flex;

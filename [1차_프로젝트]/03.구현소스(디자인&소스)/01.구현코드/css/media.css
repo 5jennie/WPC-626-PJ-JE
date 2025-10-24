@@ -245,47 +245,6 @@
 /* ***************************************************************** */
 
 @media (max-width: 768px) {
-  body {
-    padding-top: 70px !important;
-  }
-  .logo img {
-    width: 40% !important;
-    /* margin-top: -30px !important; */
-  }
-
-  .book-detail-Info {
-    display: block;
-  }
-  .dp-book-cover {
-    position: static;
-    margin-top: 50px;
-  }
-
-  .right-section {
-    margin-top: 50px;
-  }
-
-  .tab-menu {
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-
-  .book-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-
-  .category-tabs .wrap2 {
-  display: flex;
-  gap: 9vw;
-  overflow-x: auto;
-}
- 
-.category-tabs .wrap1{
-  display: none;
-}
-
-
   /* ===== 공통 - 헤더 (Header) ===== */
 
   /* 헤더 컨테이너 패딩 조정 */
@@ -351,6 +310,14 @@
     padding-top: 70px; /* 기존 80px */
   }
 
+  body {
+    padding-top: 70px !important;
+  }
+  .logo img {
+    width: 40% !important;
+    /* margin-top: -30px !important; */
+  }
+
   /* ===== index.html (메인 페이지) ===== */
 
   /* 메인 배너 (Swiper) - 1개씩 표시 */
@@ -408,6 +375,46 @@
     to {
       width: calc(100% + 20px); /* 기존 30px */
     }
+  }
+
+  /* ===== all-books.html ===== */
+
+  .category-tabs .wrap2 {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    padding: 15px 20px;
+  }
+
+  .category-tabs .wrap1 {
+    display: none;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ===== detail-page.html ===== */
+
+  .book-detail-Info {
+    display: block;
+  }
+  
+  .dp-book-cover {
+    position: static;
+    margin-top: 50px;
+  }
+
+  .right-section {
+    margin-top: 50px;
+  }
+
+  .tab-menu {
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   /* ***************************************************************** */
