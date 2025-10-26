@@ -15,44 +15,40 @@ body {
 
 .main-cont {
   display: flex;
-  padding: 5vh;
-  background: url(../../02.구현디자인/05.스킨/info_bg.png) no-repeat center/cover;
-}
-@media (max-width: 1080px) {
-  .main-cont {
-    flex-direction: column;
-    align-items: center;
-    
-  padding: 3vw;
-  }
-  
+  padding: 10vh 35vh;
+  background: url(../../02.구현디자인/05.스킨/info_bg.png) no-repeat
+    center/cover;
 }
 /* 2. 메인영역 */
 /* 메인 배너 전체 박스 */
 
 /* .info-logo img 를 info-bn img 위에 겹쳐서 올리기 */
 .info-logo {
-  /* position: absolute;
-  top: 0;
-   */width: 60%;
-  height: 129%;
+  width: 40%; /* 로고 영역 너비 */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 15vh;
+}
+
+.info-logo img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
 }
 
 /* info-text 박스를 info-logo img 옆에 배치하기 */
 .info-text {
-  /* position: absolute;
-  top: 40%;
-  left: 47%; */
+  width: 60%; /* 텍스트 영역 너비 */
   color: #000000;
   padding: 3vh;
 }
 .info-text h3 {
   font-size: 25px;
+  margin-bottom: 30px; /* ★추가됨: 제목과 본문 사이 간격 */
 }
 .info-text p {
   font-size: 16px;
   font-family: none;
+  line-height: 1.8; /* ★추가됨: 줄 간격 넓힘 */
 }

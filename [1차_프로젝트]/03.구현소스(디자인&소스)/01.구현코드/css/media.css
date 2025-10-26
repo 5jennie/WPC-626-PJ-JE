@@ -51,9 +51,11 @@
 
 /* ***************************************************************** */
 /* PC 작은 사이즈 (max-width: 1200px) */
-/* ***************************************************************** */
+/* 
+***************************************************************** */
 
 @media screen and (max-width: 1200px) {
+
   /* 호버 텍스트 폰트 크기 줄이기 */
   .book-title h4 {
     font-size: 12px; /* 기존 18px */
@@ -69,6 +71,23 @@
     word-break: keep-all;
     overflow-wrap: break-word;
     line-height: 1.4;
+  }
+
+  /* ===== info.html (회사 소개페이지) ===== */
+  .main-cont {
+    padding: 5vh 10vh; /* 좌우 여백 20vh → 10vh */
+  }
+
+  .info-logo img {
+    max-width: 450px; /* 로고 크기 약간 줄임 */
+  }
+
+  .info-text h3 {
+    font-size: 23px;
+  }
+
+  .info-text p {
+    font-size: 15px;
   }
 }
 
@@ -230,10 +249,27 @@
   /* ===== detail-page.html ===== */
 
   /* ===== info.html (회사 소개페이지) ===== */
+  .main-cont {
+    flex-direction: column;
+    align-items: center;
+    padding: 3vw;
+  }
+
+  .info-logo {
+    padding: 0;
+    width: 100%; /* 전체 너비 사용 */
+    height: auto;
+  }
+
   .info-logo img {
     margin-bottom: 90px;
     margin-top: 90px;
     width: 250px; /* 기존 300px */
+  }
+
+  .info-text {
+    padding: 3vh;
+    width: 100%; /* 전체 너비 사용 */
   }
 
   .info-text h3 {
@@ -447,6 +483,41 @@
     overflow-y: hidden;
   }
 
+  /* ===== info.html (회사 소개페이지) ===== */
+  .main-cont {
+    flex-direction: column;
+    align-items: center;
+    padding: 3vw;
+  }
+
+  .info-logo {
+    width: 100%; /* 전체 너비 사용 */
+    height: auto;
+  }
+
+  .info-logo img {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    width: 200px;
+  }
+
+  .info-text {
+    padding: 2vh;
+    width: 100%; /* 전체 너비 사용 */
+  }
+
+  .info-text h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .info-text p {
+    font-size: 15px;
+    color: #535353;
+    line-height: 1.7;
+    margin-bottom: 80px;
+  }
+
   /* ===== Footer ===== */
   .footer-links {
     gap: 20px;
@@ -521,22 +592,38 @@
   /* ===== detail-page.html ===== */
 
   /* ===== info.html (회사 소개페이지) ===== */
+  .main-cont {
+    flex-direction: column;
+    align-items: center;
+    padding: 3vw;
+  }
+
+  .info-logo {
+    width: 100%; /* 전체 너비 사용 */
+    height: auto;
+  }
+
   .info-logo img {
-    margin-top: 100px;
-    margin-bottom: 60px;
-    width: 150px; /* 기존 300px */
+    margin-top: 80px;
+    margin-bottom: 50px;
+    width: 200px;
+  }
+
+  .info-text {
+    padding: 2vh;
+    width: 100%; /* 전체 너비 사용 */
   }
 
   .info-text h3 {
-    font-size: 22px; /* 기존 24px */
+    font-size: 20px;
     text-align: center;
   }
 
   .info-text p {
-    font-size: 14px; /* 기존 18px */
+    font-size: 15px;
     color: #535353;
     line-height: 1.7;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
   }
 
   /* ===== Footer ===== */
