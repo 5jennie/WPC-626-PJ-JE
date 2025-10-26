@@ -79,11 +79,6 @@
 @media (max-width: 940px) {
   /* ===== 공통 - 헤더 (Header) ===== */
 
-  /* 헤더 컨테이너 패딩 조정 */
-  .header-container {
-    /* padding: 20px 0 0 0; */ /* 기존 30px */
-  }
-
   /* 왼쪽 메뉴 패딩 */
   .nav-left {
     padding-left: 30px; /* 기존 50px */
@@ -96,11 +91,6 @@
 
   /* 왼쪽 메뉴 폰트 크기 */
   .nav-left a {
-    font-size: 20px; /* 기존 25px */
-  }
-
-  /* 오른쪽 메뉴 폰트 크기 */
-  .nav-right a {
     font-size: 20px; /* 기존 25px */
   }
 
@@ -238,6 +228,27 @@
   /* ===== all-books.html ===== */
 
   /* ===== detail-page.html ===== */
+
+  /* ===== info.html (회사 소개페이지) ===== */
+  .info-logo img {
+    margin-bottom: 90px;
+    margin-top: 90px;
+    width: 250px; /* 기존 300px */
+  }
+
+  .info-text h3 {
+    font-size: 22px; /* 기존 24px */
+    text-align: center;
+  }
+
+  .info-text p {
+    font-size: 16px; /* 기존 18px */
+    color: #535353;
+    line-height: 1.7;
+    margin-bottom: 100px;
+  }
+
+  /* ===== Footer ===== */
 }
 
 /* ***************************************************************** */
@@ -247,10 +258,6 @@
 @media (max-width: 768px) {
   /* ===== 공통 - 헤더 (Header) ===== */
 
-  /* 헤더 컨테이너 패딩 조정 */
-  .header-container {
-    /* padding: 15px 0 0 0; */ /* 기존 20px */
-  }
   .header-container nav {
     flex: 1;
   }
@@ -285,6 +292,7 @@
   /* 로고 크기 조정 */
   .logo img {
     max-width: 85%; /* 기존 90% */
+    width: 40% !important;
   }
 
   /* 언어 버튼 크기 조정 */
@@ -296,6 +304,7 @@
   /* body 패딩 조정 */
   body {
     padding-top: 160px; /* 기존 200px */
+    padding-top: 70px !important;
   }
 
   body.on1 {
@@ -308,14 +317,6 @@
 
   body.on3 {
     padding-top: 70px; /* 기존 80px */
-  }
-
-  body {
-    padding-top: 70px !important;
-  }
-  .logo img {
-    width: 40% !important;
-    /* margin-top: -30px !important; */
   }
 
   /* ===== index.html (메인 페이지) ===== */
@@ -381,14 +382,43 @@
 
   .category-tabs .wrap2 {
     display: flex;
+    /* 줄바꿈 방지 - 한 줄로 유지 */
     flex-wrap: nowrap;
+    /* 탭 간격 (화면 너비의 6%) */
     gap: 6vw;
+    /* 가로 스크롤 허용 - 넘치는 탭은 스크롤로 */
     overflow-x: auto;
+    /* 세로 스크롤 숨김 */
     overflow-y: hidden;
+    /* 탭을 왼쪽부터 정렬 */
     justify-content: flex-start;
+    /* 상하 15px, 좌우 20px 여백 */
     padding: 15px 20px;
+    /* iOS Safari 부드러운 스크롤 효과 */
+    -webkit-overflow-scrolling: touch;
+    /* 스크롤바 숨기기 (Firefox) */
+    scrollbar-width: none;
+    /* 스크롤바 숨기기 (IE, Edge) */
+    -ms-overflow-style: none;
   }
 
+  /* 
+   * 스크롤바 숨기기 (Chrome, Safari)
+   * - 스크롤바는 숨기되 스크롤 기능은 유지
+   * - 깔끔한 디자인을 위해 필요
+   */
+  .category-tabs .wrap2::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-tabs .wrap2 button {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .category-tabs .wrap1 {
+    display: none;
+  }
   .category-tabs .wrap1 {
     display: none;
   }
@@ -402,7 +432,7 @@
   .book-detail-Info {
     display: block;
   }
-  
+
   .dp-book-cover {
     position: static;
     margin-top: 50px;
@@ -417,116 +447,116 @@
     overflow-y: hidden;
   }
 
-  /* ***************************************************************** */
-  /* 모바일 2 (소형) - 아이폰14 등 (max-width: 430px) */
-  /* ***************************************************************** */
+  /* ===== Footer ===== */
+  .footer-links {
+    gap: 20px;
+  }
+  .footer-links a {
+    font-size: 15px;
+  }
 
-  @media (max-width: 430px) {
-    /* ===== 공통 - 헤더 (Header) ===== */
+  .footer-content {
+    display: block;
+  }
 
-    /* 헤더 컨테이너 패딩 조정 */
-    .header-container {
-      padding: 12px 0 0 0; /* 기존 15px */
+  .footer-info {
+    margin-top: 30px;
+  }
+
+  .footer .sns-icon {
+    display: block;
+    margin-top: 30px;
+  }
+}
+
+/* ***************************************************************** */
+/* 모바일 2 (소형) - 아이폰14 등 (max-width: 430px) */
+/* ***************************************************************** */
+
+@media (max-width: 430px) {
+  /* ===== index.html (메인 페이지) ===== */
+
+  /* 메인 배너 (Swiper) - 세로 비율 더 길게 */
+  .swiper-wrapper {
+    height: auto;
+    aspect-ratio: 0.65; /* 기존 0.8 */
+  }
+
+  /* 배너 정보 텍스트 크기 조정 */
+  .book-info {
+    font-size: 14px; /* 기존 16px */
+  }
+
+  .book-info h3 {
+    margin-left: 12px; /* 기존 15px */
+    margin-bottom: 12px; /* 기존 15px */
+  }
+
+  /* Swiper 네비게이션 버튼 숨기기 */
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+
+  .nav-tabs {
+    display: none;
+  }
+
+  /* Book Section 전체 숨김 */
+  .book-section {
+    display: none;
+  }
+
+  @keyframes slideIn {
+    from {
+      width: 0;
     }
-
-    /* 왼쪽 메뉴 패딩 */
-    .nav-left {
-      padding-left: 15px; /* 기존 20px */
+    to {
+      width: calc(100% + 15px); /* 기존 20px */
     }
+  }
 
-    /* 오른쪽 메뉴 패딩 */
-    .nav-right {
-      padding-right: 15px; /* 기존 20px */
-    }
+  /* ===== all-books.html ===== */
 
-    /* 왼쪽 메뉴 폰트 크기 */
-    .nav-left a {
-      font-size: 16px; /* 기존 18px */
-    }
+  /* ===== detail-page.html ===== */
 
-    /* 오른쪽 메뉴 폰트 크기 */
-    .nav-right a {
-      font-size: 16px; /* 기존 18px */
-    }
+  /* ===== info.html (회사 소개페이지) ===== */
+  .info-logo img {
+    margin-top: 100px;
+    margin-bottom: 60px;
+    width: 150px; /* 기존 300px */
+  }
 
-    /* 메뉴 간격 조정 */
-    .nav-left ul,
-    .nav-right ul {
-      gap: 8px; /* 기존 12px */
-    }
+  .info-text h3 {
+    font-size: 22px; /* 기존 24px */
+    text-align: center;
+  }
 
-    /* 로고 크기 조정 */
-    .logo img {
-      max-width: 75%; /* 기존 85% */
-    }
+  .info-text p {
+    font-size: 14px; /* 기존 18px */
+    color: #535353;
+    line-height: 1.7;
+    margin-bottom: 100px;
+  }
 
-    /* 언어 버튼 크기 조정 */
-    .lang-kr,
-    .lang-en {
-      display: none;
-    }
+  /* ===== Footer ===== */
+  .footer-links {
+    gap: 20px;
+  }
+  .footer-links a {
+    font-size: 15px;
+  }
 
-    /* body 패딩 조정 */
-    body {
-      padding-top: 130px; /* 기존 160px */
-    }
+  .footer-content {
+    display: block;
+  }
 
-    body.on1 {
-      padding-top: 105px; /* 기존 130px */
-    }
+  .footer-info {
+    margin-top: 30px;
+  }
 
-    body.on2 {
-      padding-top: 80px; /* 기존 100px */
-    }
-
-    body.on3 {
-      padding-top: 60px; /* 기존 70px */
-    }
-
-    /* ===== index.html (메인 페이지) ===== */
-
-    /* 메인 배너 (Swiper) - 세로 비율 더 길게 */
-    .swiper-wrapper {
-      height: auto;
-      aspect-ratio: 0.65; /* 기존 0.8 */
-    }
-
-    /* 배너 정보 텍스트 크기 조정 */
-    .book-info {
-      font-size: 14px; /* 기존 16px */
-    }
-
-    .book-info h3 {
-      margin-left: 12px; /* 기존 15px */
-      margin-bottom: 12px; /* 기존 15px */
-    }
-
-    /* Swiper 네비게이션 버튼 숨기기 */
-    .swiper-button-prev,
-    .swiper-button-next {
-      display: none;
-    }
-
-    .nav-tabs {
-      display: none;
-    }
-
-    /* Book Section 전체 숨김 */
-    .book-section {
-      display: none;
-    }
-
-    @keyframes slideIn {
-      from {
-        width: 0;
-      }
-      to {
-        width: calc(100% + 15px); /* 기존 20px */
-      }
-    }
-
-    /* ===== all-books.html ===== */
-
-    /* ===== detail-page.html ===== */
+  .footer .sns-icon {
+    display: block;
+    margin-top: 30px;
   }
 }

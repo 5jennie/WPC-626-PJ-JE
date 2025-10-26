@@ -28,8 +28,7 @@ body {
 
 .book-detail-Info {
   max-width: 1025px;
-  margin: 0 auto;
-  /* margin-left: 125px; */
+  margin: 0 0 80px;
   display: grid;
   gap: min(7vw, 100px);
   grid-template-columns: 280px 1fr;
