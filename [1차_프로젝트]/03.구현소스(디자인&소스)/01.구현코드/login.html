@@ -4,6 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login-위고</title>
+    <!-- longin CSS -->
+    <link rel="stylesheet" href="./css/login.css" />
+    <!-- info CSS -->
+    <link rel="stylesheet" href="./css/info.css" />
+    <!-- media CSS -->
+    <link rel="stylesheet" href="./css/media.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- Header 불러올 위치 -->
+    <div id="header"></div>
+
+    <!-- ***************************************************************** -->
+    <main>
+      <div class="login-container">
+        <h1 class="login-title">Login</h1>
+
+        <form action="#" method="POST">
+          <div class="input-group">
+            <label class="input-label">아이디</label>
+            <input type="text" class="input-field" name="username" required />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label">비밀번호</label>
+            <input
+              type="password"
+              class="input-field"
+              name="password"
+              required
+            />
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="saveId" name="saveId" />
+            <label for="saveId">아이디 저장</label>
+          </div>
+
+          <div class="button-group">
+            <div class="find-password"></div>
+            <button type="button" class="btn btn-signup">로그인</button>
+            <button type="submit" class="btn btn-login">회원가입</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <!-- ***************************************************************** -->
+
+    <!-- Footer 불러올 위치 -->
+    <div id="footer"></div>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
