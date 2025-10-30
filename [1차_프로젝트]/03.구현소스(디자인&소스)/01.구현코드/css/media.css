@@ -247,7 +247,24 @@
   /* ===== all-books.html ===== */
 
   /* ===== detail-page.html ===== */
+  .book-detail-Info {
+    display: block;
+  }
 
+  .dp-book-cover {
+    position: static;
+    margin-top: 50px;
+  }
+
+  .right-section {
+    margin-top: 50px;
+  }
+
+  .tab-menu {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
   /* ===== info.html (회사 소개페이지) ===== */
   .main-cont {
     flex-direction: column;

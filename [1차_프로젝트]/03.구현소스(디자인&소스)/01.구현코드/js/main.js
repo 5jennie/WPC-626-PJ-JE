@@ -681,7 +681,7 @@ function getTotalPages(category) {
     } else if (category === "위고의 그림책" && itemCategory === "그림책") {
       count++;
     } else if (category === "기타" && itemCategory === "기타") {
-      // ★추가됨: 기타 카테고리 처리
+      // 기타 카테고리 처리
       count++;
     } else if (category === "인기순") {
       count++;
@@ -752,7 +752,7 @@ function updatePagination() {
   }
 }
 /* ***************************************************************** */
-/* ★추가됨: 탭 가로 스크롤 터치/드래그 기능 */
+/* 탭 가로 스크롤 터치/드래그 기능 */
 /* ***************************************************************** */
 
 // 탭 메뉴 가로 스크롤 드래그 기능
@@ -771,7 +771,7 @@ function initTabScrollDrag() {
   let lastX = 0;
   let timestamp = 0;
 
-  // ★추가됨: 마우스 드래그 시작 (PC)
+  // 마우스 드래그 시작 (PC)
   scrollContainer.addEventListener("mousedown", (e) => {
     isDown = true;
     scrollContainer.style.cursor = "grabbing";
@@ -782,13 +782,13 @@ function initTabScrollDrag() {
     timestamp = Date.now();
   });
 
-  // ★추가됨: 마우스가 영역을 벗어나면 드래그 종료
+  // 마우스가 영역을 벗어나면 드래그 종료
   scrollContainer.addEventListener("mouseleave", () => {
     isDown = false;
     scrollContainer.style.cursor = "grab";
   });
 
-  // ★추가됨: 마우스 버튼을 놓으면 드래그 종료
+  // 마우스 버튼을 놓으면 드래그 종료
   scrollContainer.addEventListener("mouseup", () => {
     isDown = false;
     scrollContainer.style.cursor = "grab";
@@ -837,7 +837,7 @@ function initTabScrollDrag() {
     timestamp = Date.now();
   }, { passive: true });
 
-  // ★추가됨: 터치 이동 중 드래그 처리 (모바일)
+  // 터치 이동 중 드래그 처리 (모바일)
   scrollContainer.addEventListener("touchmove", (e) => {
     const x = e.touches[0].pageX - scrollContainer.offsetLeft;
     const walk = (x - startX) * 1.5; // 스크롤 속도
@@ -853,7 +853,7 @@ function initTabScrollDrag() {
     timestamp = now;
   }, { passive: true });
 
-  // ★추가됨: 터치 종료 시 관성 스크롤
+  // 터치 종료 시 관성 스크롤
   scrollContainer.addEventListener("touchend", () => {
     if (Math.abs(velocity) > 1) {
       let inertia = velocity;
@@ -870,13 +870,13 @@ function initTabScrollDrag() {
     }
   }, { passive: true });
 
-  // ★추가됨: 기본 커서 스타일
+  // 기본 커서 스타일
   scrollContainer.style.cursor = "grab";
   
   console.log("✅ 탭 가로 스크롤 드래그 초기화 완료");
 }
 
-// ★추가됨: DOMContentLoaded 시 실행
+// DOMContentLoaded 시 실행
 document.addEventListener("DOMContentLoaded", () => {
   initTabScrollDrag();
 });

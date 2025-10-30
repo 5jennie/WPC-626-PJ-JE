@@ -33,7 +33,7 @@ body {
   display: grid;
   gap: min(7vw, 100px);
   grid-template-columns: 280px 1fr;
-  align-items: stretch
+  align-items: stretch;
 }
 
 /* 책표지 */
@@ -178,6 +178,66 @@ body {
   text-align: justify;
 }
 
+/* 1:1문의 게시판 스타일 */
+.qna-write {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+}
+
+.qna-write label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.qna-write input[type="text"] {
+  padding: 12px 15px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.qna-write input[type="text"]:focus {
+  border-color: #333;
+}
+
+.qna-write textarea {
+  padding: 12px 15px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  min-height: 250px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.3s;
+  font-family: inherit;
+}
+
+.qna-write textarea:focus {
+  border-color: #333;
+}
+
+.qna-write .submit-btn {
+  align-self: flex-end;
+  padding: 12px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.qna-write .submit-btn:hover {
+  background-color: #137cf4;
+}
+
 /* book-detail */
 /* 텍스트 스타일 */
 .book-detail h2 {
@@ -235,12 +295,13 @@ body {
 /* qna */
 
 /* 1:1 문의 헤더 영역 */
-.qna-header {
+.tab-panel[data-panel="qna"] > .book-detail > .qna-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.qna-btn {
+
+.qna-write-btn {
   padding: 12px 30px;
   background: #000000;
   color: white;
@@ -251,7 +312,7 @@ body {
   transition: background 0.3s ease;
 }
 
-.qna-btn:hover {
+.qna-write-btn:hover {
   background: #137cf4;
 }
 
@@ -271,11 +332,11 @@ body {
   border-color: #000000;
 }
 
-.qna-header {
+.qna-item .qna-header {
   margin-bottom: 10px;
 }
 
-.qna-header strong {
+.qna-item .qna-header strong {
   font-size: 14px;
   color: #333;
 }

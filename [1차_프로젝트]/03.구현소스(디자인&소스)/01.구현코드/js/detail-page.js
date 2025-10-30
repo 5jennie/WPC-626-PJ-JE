@@ -1,8 +1,7 @@
 // 위고 출판사 detail-page js - detail-page.js
 
-
 /* ***************************************************************** */
-// 1:1 문의 페이지네이션 /* ★수정됨: qna- 클래스명으로 통일 */
+// 1:1 문의 페이지네이션 /* qna- 클래스명으로 통일 */
 
 let currentQnaPage = 1;
 const qnaPerPage = 5; // 페이지당 5개씩 표시
@@ -222,9 +221,108 @@ document.addEventListener("DOMContentLoaded", function () {
   // 탭 메뉴 초기화
   initTabMenu();
 
-  // 1:1 문의 페이지네이션 초기화 /* ★수정됨: 페이지네이션 초기화 추가 */
+  // 1:1 문의 페이지네이션 초기화 /* 페이지네이션 초기화 추가 */
   initQnaPagination();
 
+  /* 문의 아이템 클릭 이벤트 */
+  function addQnaItemClickEvent(item) {
+    item.addEventListener("click", function () {
+      alert("관리자와 작성자만 확인 가능합니다.");
+    });
+  }
+
+  /* 기존 문의 아이템들에 클릭 이벤트 추가 */
+  document.querySelectorAll(".qna-item").forEach((item) => {
+    addQnaItemClickEvent(item);
+  });
+
+  // 1:1 문의에서 문의글 남기기 버튼 클릭시 작성 패널로 이동
+  const qnaTabBtn = document.querySelector('.tab-btn[data-tab="qna"]');
+  const qnaWriteBtn = document.querySelector(".qna-write-btn");
+  const qnaWritePanel = document.querySelector(
+    '.tab-panel[data-panel="qna-write"]'
+  );
+
+  if (qnaTabBtn && qnaWriteBtn && qnaWritePanel) {
+    qnaWriteBtn.addEventListener("click", function () {
+      // 모든 탭 버튼 비활성화
+      document
+        .querySelectorAll(".tab-btn")
+        .forEach((btn) => btn.classList.remove("active"));
+      // qna 탭 버튼 활성화
+      qnaTabBtn.classList.add("active");
+
+      // qna 탭 내 모든 패널 숨김
+      document
+        .querySelectorAll('.tab-panel[data-panel^="qna"]')
+        .forEach((panel) => {
+          panel.classList.remove("active");
+        });
+
+      // 문의 작성 패널만 표시
+      qnaWritePanel.classList.add("active");
+    });
+  }
+
+  // 문의 작성 품 제출 시 게시판 리스트로 이동
+  const qnaForm = document.querySelector(
+    '.tab-panel[data-panel="qna-write"] form'
+  );
+  const qnaListPanel = document.querySelector('.tab-panel[data-panel="qna"]');
+
+  if (qnaForm && qnaListPanel) {
+    qnaForm.addEventListener("submit", function (e) {
+      e.preventDefault(); // 기본 폼 제출 방지
+
+      // 입력값 가져오기
+      const title = document.getElementById("qna-title").value.trim();
+      const content = document.getElementById("qna-content").value.trim();
+
+      // 유효성 검사
+      if (!title || !content) {
+        alert("제목과 내용을 모두 입력해주세요.");
+        return;
+      }
+
+      // 현재 날짜 생성
+      const today = new Date();
+      const dateStr = `${today.getFullYear()}.${String(
+        today.getMonth() + 1
+      ).padStart(2, "0")}.${String(today.getDate()).padStart(2, "0")}`;
+
+      // 새로운 문의 아이템 생성
+      const newQnaItem = document.createElement("div");
+      newQnaItem.className = "qna-item";
+      newQnaItem.innerHTML = `
+        <div class="qna-header">
+          <strong>di**** ${dateStr}</strong>
+        </div>
+        <p>${title}</p>
+      `;
+
+      // 문의 목록 맨 위에 추가
+      const qnaList = qnaListPanel.querySelector(".qna-list");
+      qnaList.insertBefore(newQnaItem, qnaList.firstChild);
+
+      // 폼 초기화
+      qnaForm.reset();
+
+      // 문의 목록 패널로 이동
+      document
+        .querySelectorAll('.tab-panel[data-panel^="qna"]')
+        .forEach((panel) => {
+          panel.classList.remove("active");
+        });
+      qnaListPanel.classList.add("active");
+
+      // 페이지네이션 재초기화 (문의가 추가되었으므로)
+      currentQnaPage = 1; // 첫 페이지로 이동
+      initQnaPagination();
+
+      // 성공 메시지
+      alert("문의가 등록되었습니다.");
+    });
+  }
   console.log("상세페이지 로드 완료");
 });
 

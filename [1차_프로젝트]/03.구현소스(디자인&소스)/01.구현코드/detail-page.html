@@ -92,7 +92,7 @@
                 <!-- 제목과 버튼 -->
                 <div class="qna-header">
                   <h2>1:1 문의</h2>
-                  <button class="qna-btn">문의글 남기기</button>
+                  <button class="qna-write-btn">문의글 남기기</button>
                 </div>
 
                 <!-- 문의 목록 -->
@@ -148,6 +148,22 @@
                   </div>
                   <button class="page-btn next">&gt;</button>
                 </div>
+              </article>
+            </div>
+
+            <!-- 4-1. 문의글 남기기 -->
+            <div class="tab-panel" data-panel="qna-write">
+              <article class="book-detail">
+                <h2>1:1 문의</h2>
+                <form>
+                  <div class="qna-write">
+                    <label for="qna-title">제목</label>
+                    <input type="text" name="qna-title" id="qna-title" />
+                    <label for="qna-content">내용</label>
+                    <textarea name="qna-content" id="qna-content"></textarea>
+                    <button type="submit" class="submit-btn">제출하기</button>
+                  </div>
+                </form>
               </article>
             </div>
           </div>
