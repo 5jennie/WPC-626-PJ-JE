@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS실험실 : 03.스크롤액션 예비편</title>
+    <style>
+      /* 바디전체 */
+      body {
+        /* 높이는 보이는 화면의 5배 */
+        height: 500vh;
+        background: url(./images/sky.jpg) no-repeat fixed center/cover;
+        
+        /* 가로스크롤 숨기기 */
+        overflow-x: hidden;
+      }
+
+      /* 가상요소로 상단선표시 */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-top: 10px dashed aqua;
+      }
+      /* 가상요소로 목표지점 글자표시 */
+      body::after {
+        content: "👆목표지점!";
+        position: fixed;
+        top: 1%;
+        right: 5%;
+        color: #fff;
+        text-shadow: 3px 3px 3px #000;
+        font-size: 4vh;
+        animation: hand-ani 0.3s ease-in-out infinite alternate;
+      }
+      /* 목표지점 글자 애니 */
+      @keyframes hand-ani {
+        to {
+          top: 5%;
+        }
+      }
+
+      /* 타이틀 */
+      .tit {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 4vw;
+        text-shadow: 3px 3px 3px #000;
+      }
+
+      /* 트랙전체 플렉스박스 */
+      .track-box {
+        display: flex;
+        gap: 5vw;
+        height: 100%;
+      }
+
+      /* 트랙 플렉스 자식 등분할 */
+      .track {
+        position: relative;
+        flex: 1;
+      }
+      /* 비행기이미지와 거리표시박스를 가지는 앱솔루트박스 */
+      .track aside {
+        position: absolute;
+        font-size: 5vh;
+        color: #fff;
+        text-shadow: 0 0 5px #000;
+        text-align: center;
+      }
+
+      /* 비행기 거리 숫자전체박스 */
+      .track b {
+        display: block;
+        /* 줄바꿈방지 */
+        white-space: nowrap;
+      }
+      /* 거리숫자표시 span */
+      .track span {
+        color: lime;
+      }
+      /* 비행기이미지 공통 */
+      .track img {
+        width: 100%;
+        filter: drop-shadow(0 0 20px aqua);
+      }
+      /* 비행기 축소확대 애니 */
+      @keyframes plane-ani {
+        to {
+          scale: 1.1;
+        }
+      }
+      /* 첫번째 비행기박스 */
+      .t1 aside {
+        top: 100vh;
+      }
+      /* 첫번째 비행기이미지 */
+      .t1 img {
+        scale: 0.7;
+        animation: plane-ani 2s ease-in-out infinite alternate;
+      }
+
+      /* 두번째 비행기박스 */
+      .t2 aside {
+        top: 250vh;
+      }
+      /* 두번째 비행기이미지 */
+      .t2 img {
+        scale: 0.5;
+        animation: plane-ani 1s ease-in-out infinite alternate;
+      }
+
+      /* 세번째 비행기박스 */
+      .t3 aside {
+        top: 350vh;
+      }
+      /* 세번째 비행기이미지 */
+      .t3 img {
+        scale: 0.9;
+        animation: plane-ani 3s ease-in-out infinite alternate;
+      }
+
+      /* 스크롤 액션 클래스 : 
+      상위 요소에 클래스 .action주면 
+      하위 img요소에 적용됨! */
+      .action img {
+        outline: 5vw dotted hotpink;
+        border-radius: 50%;
+        rotate: 360deg;
+        transition: 2s ease-in-out;
+      }
+    </style>
+    <script src="./js/03.스크롤액션예비편.js" defer></script>
+  </head>
+  <body>
+    <h1 class="tit">🛫 스크롤로 날아가는 비행기 🛬</h1>
+    <div class="track-box">
+      <div class="track t1">
+        <aside>
+          <b><span>0</span> km</b>
+          <img src="./images/ap1.png" alt="뱅기" />
+        </aside>
+      </div>
+      <div class="track t2">
+        <aside>
+          <b><span>0</span> km</b>
+          <img src="./images/ap2.png" alt="뱅기" />
+        </aside>
+      </div>
+      <div class="track t3">
+        <aside>
+          <b><span>0</span> km</b>
+          <img src="./images/ap3.png" alt="뱅기" />
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>
