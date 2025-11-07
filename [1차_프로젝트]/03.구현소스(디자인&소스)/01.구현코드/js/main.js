@@ -607,12 +607,12 @@ function filterAndPaginate(category, page) {
     });
   } else {
     console.log("가나다순 정렬 실행");
-    // ★수정됨: 가나다순 정렬
+    // 가나다순 정렬
     filteredBooks.sort((a, b) => {
       const titleA = a.getAttribute("data-title") || "";
       const titleB = b.getAttribute("data-title") || "";
 
-      // ★수정됨: 중복된 localeCompare 제거, 한 번만 실행
+      // 중복된 localeCompare 제거, 한 번만 실행
       return titleA.localeCompare(titleB, "ko", {
         sensitivity: "base",
         numeric: false,
@@ -793,7 +793,7 @@ function initTabScrollDrag() {
     isDown = false;
     scrollContainer.style.cursor = "grab";
     
-    // ★추가됨: 관성 스크롤 효과
+    // 관성 스크롤 효과
     if (Math.abs(velocity) > 1) {
       let inertia = velocity;
       const deceleration = 0.95; // 감속 계수
@@ -809,7 +809,7 @@ function initTabScrollDrag() {
     }
   });
 
-  // ★추가됨: 마우스 이동 중 드래그 처리
+  // 마우스 이동 중 드래그 처리
   scrollContainer.addEventListener("mousemove", (e) => {
     if (!isDown) return;
     e.preventDefault();
@@ -828,7 +828,7 @@ function initTabScrollDrag() {
     timestamp = now;
   });
 
-  // ★추가됨: 터치 드래그 시작 (모바일)
+  // 터치 드래그 시작 (모바일)
   scrollContainer.addEventListener("touchstart", (e) => {
     startX = e.touches[0].pageX - scrollContainer.offsetLeft;
     scrollLeft = scrollContainer.scrollLeft;
