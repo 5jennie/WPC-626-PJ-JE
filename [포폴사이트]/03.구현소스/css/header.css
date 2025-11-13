@@ -1,0 +1,23 @@
+
+/* 상단 카테고리 */
+.nav {
+  -webkit-backdrop-filler: blur(10px);
+  background: rgb(0 0 0 / 6%);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  z-index: 1001;
+  font-weight: 100;
+}
+
+.nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+}

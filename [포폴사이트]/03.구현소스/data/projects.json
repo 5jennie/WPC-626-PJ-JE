@@ -1,0 +1,309 @@
+{
+  "_info": {
+    "description": "Jennie Portfolio 전체 프로젝트 통합 데이터",
+    "lastUpdated": "2025-11-13",
+    "usage": {
+      "id_1_3": "index Works 섹션 & works.html (공유)",
+      "id_4_17": "works.html 프로젝트 & index More 섹션 (공유)",
+      "id_18": "index More 섹션 마지막"
+    },
+    "note": "이미지 경로는 임의로 설정. 유동적으로 추가 삭제."
+  },
+  "projects": [
+    {
+      "_comment": "=== id 1 (index Works 섹션 + works.html) ===",
+      "id": 1,
+      "category": "web",
+      "image": "./img/works/works (1).gif",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "WEB DESIGN<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"
+      ]
+    },
+    {
+      "_comment": "=== id 2 (index Works 섹션 + works.html) ===",
+      "id": 2,
+      "category": "web",
+      "image": "./img/works/works (2).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "WEB DESIGN<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"
+      ]
+    },
+    {
+      "_comment": "=== id 3 (index Works 섹션 + works.html) ===",
+      "id": 3,
+      "category": "web",
+      "image": "./img/works/works (2).gif",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "WEB DESIGN<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"
+      ]
+    },
+    {
+      "_comment": "=== id 4 (works.html + index More 섹션) ===",
+      "id": 4,
+      "category": "promotions",
+      "image": "./img/works/works (3).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "PROMOTION<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"
+      ]
+    },
+    {
+      "_comment": "=== id 5 (works.html + index More 섹션) ===",
+      "id": 5,
+      "category": "promotions",
+      "image": "./img/works/works (4).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "PROMOTION<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"
+      ]
+    },
+    {
+      "_comment": "=== id 6 (works.html + index More 섹션) ===",
+      "id": 6,
+      "category": "promotions",
+      "image": "./img/works/works (5).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "PROMOTION<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"
+      ]
+    },
+    {
+      "_comment": "=== id 7 (works.html + index More 섹션) ===",
+      "id": 7,
+      "category": "branding",
+      "image": "./img/works/works (6).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "BRANDING<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"
+      ]
+    },
+    {
+      "_comment": "=== id 8 (works.html + index More 섹션) ===",
+      "id": 8,
+      "category": "branding",
+      "image": "./img/works/works (7).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "BRANDING<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 9 (works.html + index More 섹션) ===",
+      "id": 9,
+      "category": "branding",
+      "image": "./img/works/works (8).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "BRANDING<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 10 (works.html + index More 섹션) ===",
+      "id": 10,
+      "category": "branding",
+      "image": "./img/works/works (9).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "BRANDING<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 11 (works.html + index More 섹션) ===",
+      "id": 11,
+      "category": "promotions",
+      "image": "./img/works/works (10).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "promotions<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 12 (works.html + index More 섹션) ===",
+      "id": 12,
+      "category": "promotions",
+      "image": "./img/works/works (11).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "promotions<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 13 (works.html + index More 섹션) ===",
+      "id": 13,
+      "category": "web",
+      "image": "./img/works/works (12).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "web<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 14 (works.html + index More 섹션) ===",
+      "id": 14,
+      "category": "promotions",
+      "image": "./img/works/works (13).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "promotions<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 15 (works.html + index More 섹션) ===",
+      "id": 15,
+      "category": "promotions",
+      "image": "./img/works/works (14).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "promotions<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 16 (works.html + index More 섹션) ===",
+      "id": 16,
+      "category": "web",
+      "image": "./img/works/works (15).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "web<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 17 (works.html + index More 섹션) ===",
+      "id": 17,
+      "category": "web",
+      "image": "./img/works/works (16).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "web<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    },
+    {
+      "_comment": "=== id 18 (index More 섹션 마지막) ===",
+      "id": 18,
+      "category": "branding",
+      "image": "./img/works/works (17).jpg",
+      "description": "www is an online magazine with impersonal content where any path, the project supports criticism and research motion.",
+      "tag": "BRANDING<br />1920*",
+      "detailMainImage": "./img/detail/project1/detail-img-m.jpg",
+      "detailSubImages": [
+        "./img/detail/project1/detail-img-sb (1).jpg",
+        "./img/detail/project1/detail-img-sb (2).jpg",
+        "./img/detail/project1/detail-img-sb (3).jpg",
+        "./img/detail/project1/detail-img-sb (4).jpg",
+        "./img/detail/project1/detail-img-sb (5).jpg",
+        "./img/detail/project1/detail-img-sb (6).jpg"]
+    }
+  ]
+}

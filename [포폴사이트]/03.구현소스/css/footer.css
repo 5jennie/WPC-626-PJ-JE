@@ -1,0 +1,19 @@
+.footer {
+  text-align: right;
+  padding: 40px 80px;
+  background: transparent;
+}
+
+.email {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+/* ★추가됨: 반응형 - 모바일 */
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+    text-align: center;
+  }
+}

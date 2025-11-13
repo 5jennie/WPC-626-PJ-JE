@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Works - Jennie Portfolio</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <!-- CSS -->
+    <!-- works css -->
+    <link rel="stylesheet" href="./css/works.css" />
+
+    <!-- 미디어 쿼리 css -->
+    <link rel="stylesheet" href="./css/media-index.css" />
+    <link rel="stylesheet" href="./css/media-works.css" />
+  </head>
+
+  <body>
+    <!-- Header 불러올 위치 -->
+    <div id="nav"></div>
+
+    <!-- --------------------------------------------------------------- -->
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="works-main">
+      <!-- 카테고리 탭 섹션 -->
+      <div class="category-tabs">
+        <button class="tab-btn active" data-category="all">All</button>
+        <button class="tab-btn" data-category="web">Web</button>
+        <button class="tab-btn" data-category="promotions">Promotions</button>
+        <button class="tab-btn" data-category="branding">Branding</button>
+      </div>
+
+      <!-- 프로젝트 그리드 컨테이너 -->
+      <div class="projects-grid">
+        <!-- JavaScript로 동적 생성되도록 비움 -->
+      </div>
+
+      <!-- 페이지네이션 -->
+      <div class="pagination">
+        <button class="pagination-btn prev">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" />
+          </svg>
+        </button>
+        <button class="pagination-btn next">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer 불러올 위치 -->
+    <div id="footer"></div>
+
+    <!-- 마우스 커서 커스텀 -->
+    <div class="custom-cursor"></div>
+
+    <!-- js 불러오기 -->
+    <script src="./js/script.js"></script>
+  </body>
+</html>
